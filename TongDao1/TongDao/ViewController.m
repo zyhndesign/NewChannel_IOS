@@ -216,9 +216,6 @@ static BOOL handleScrol;
     {
         return;
     }
-    /////sunyong Test
-    [self presentViewController:contentViewContr animated:YES completion:nil];
-    return;
     AllOnlyShowPresentOne = 1;
     stopAllView.hidden   = NO;
     otherContentV.hidden = NO;
