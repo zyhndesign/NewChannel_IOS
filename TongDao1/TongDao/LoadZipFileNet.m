@@ -61,7 +61,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    if (connectNum == 2)
+    if (connectNum == 1)
     {
         [QueueZipHandle taskFinish];
         if ([delegate respondsToSelector:@selector(didReceiveErrorCode:)])

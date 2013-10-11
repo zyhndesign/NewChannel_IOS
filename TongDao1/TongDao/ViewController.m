@@ -34,6 +34,7 @@
     stopAllView.hidden = NO;
     slipLb.backgroundColor = RedColor;
     slipLb.hidden = YES;
+    
     [QueueProHanle   init];
     [QueueZipHandle  init];
     
@@ -213,9 +214,11 @@ static BOOL handleScrol;
 {
     if (AllOnlyShowPresentOne == 1)
     {
-        [contentViewContr release];
         return;
     }
+    /////sunyong Test
+    [self presentViewController:contentViewContr animated:YES completion:nil];
+    return;
     AllOnlyShowPresentOne = 1;
     stopAllView.hidden   = NO;
     otherContentV.hidden = NO;

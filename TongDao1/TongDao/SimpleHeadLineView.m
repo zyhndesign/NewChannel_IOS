@@ -64,13 +64,8 @@
     detailTextV.textColor       = [UIColor darkGrayColor];
     detailTextV.editable      = NO;
     detailTextV.scrollEnabled = NO;
-    detailTextV.userInteractionEnabled = YES;
+    detailTextV.userInteractionEnabled = NO;
     [whiteView addSubview:detailTextV];
-    
-    UITapGestureRecognizer *tapGestureRTT = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
-    [detailTextV addGestureRecognizer:tapGestureRTT];
-    [tapGestureRTT release];
-    
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 6.0f;
@@ -133,7 +128,7 @@
         ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = imageURL;
-        [QueueProHanle addTarget:proImageLoadNet];
+        [proImageLoadNet loadImageFromUrl];
         [proImageLoadNet release];
     }
     
@@ -154,6 +149,10 @@
 
 - (void)tapView
 {
+    if (AllOnlyShowPresentOne == 1)
+    {
+        return;
+    }
     ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:_infoDict];
     [RootViewContr presentViewContr:contentV];
 }

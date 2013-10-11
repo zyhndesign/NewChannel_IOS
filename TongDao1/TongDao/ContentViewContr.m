@@ -45,6 +45,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor clearColor];
+    self.view.layer.backgroundColor = [UIColor clearColor].CGColor;
     
     infoDict = [[NSMutableDictionary alloc] init];
     activeView = [[ActiveView alloc] init];
@@ -204,6 +206,10 @@
     [loadZipNet setDelegate:nil];
     [_webView setDelegate:nil];
     [_webView stopLoading];
+    
+    ///// test sunyong
+    [self dismissViewControllerAnimated:YES completion:nil];
+    return;
     
     [UIView animateWithDuration:0.3
                      animations:^(void){
