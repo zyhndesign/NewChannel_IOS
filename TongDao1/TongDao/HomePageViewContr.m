@@ -34,7 +34,7 @@
     [contentScrolV setContentSize:CGSizeMake(1024*3, 768)];
     
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
-    [self.view addGestureRecognizer:tapGestureR];
+    [movieView addGestureRecognizer:tapGestureR];
     [tapGestureR release];
     
     [super viewDidLoad];
@@ -92,7 +92,6 @@
             
         }
     }
-    
     
     //// 后三个
     for (int i = 1; i < initAry.count; i++)

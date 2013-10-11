@@ -51,8 +51,6 @@
     activeView.center = CGPointMake(512, 350);
     [self.view addSubview:activeView];
     
-    
-    _webView.opaque = NO;
     id scroller = [_webView.subviews objectAtIndex:0];
     for(UIView *subView in [scroller subviews])
     {
@@ -63,6 +61,7 @@
     }
     _webView.scrollView.showsVerticalScrollIndicator   = NO;
     _webView.scrollView.showsHorizontalScrollIndicator = YES;
+    _webView.scrollView.bounces = YES;
     
     NSString *doctPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)  lastObject];
     NSString *documentPath = [doctPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", [initDict objectForKey:@"id"]]];
@@ -90,7 +89,7 @@
     [loadZipNet release];
     [infoDict release];
     [activeView release];
-    [pool release];
+    [pool drain];
     [super dealloc];
 }
 
@@ -102,7 +101,8 @@
         loadZipNet.delegate = self;
         loadZipNet.urlStr   = [[initDict objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         loadZipNet.md5Str   = [[initDict objectForKey:@"md5"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [loadZipNet loadMenuFromUrl:[initDict objectForKey:@"id"]];
+        loadZipNet.zipStr   = [initDict objectForKey:@"id"];
+        [QueueZipHandle addTarget:loadZipNet];
     }
 }
 

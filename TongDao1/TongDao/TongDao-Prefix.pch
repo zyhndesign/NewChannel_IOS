@@ -19,3 +19,5 @@
 #define RedColor [UIColor colorWithRed:203/255.0 green:47/255.0 blue:59/255.0 alpha:1]
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? ([[UIScreen mainScreen] currentMode].size.height > 960.0f) : NO)
+
+

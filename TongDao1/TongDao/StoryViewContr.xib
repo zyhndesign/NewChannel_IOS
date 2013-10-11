@@ -10,6 +10,7 @@
                 <outlet property="contentScrolV" destination="5" id="21"/>
                 <outlet property="leftBt" destination="19" id="22"/>
                 <outlet property="mainImageV" destination="18" id="26"/>
+                <outlet property="pageControl" destination="E9V-Wj-Qhd" id="5N7-9A-pxR"/>
                 <outlet property="rightBg" destination="20" id="23"/>
                 <outlet property="view" destination="4" id="15"/>
             </connections>
@@ -85,6 +86,13 @@
                         <action selector="skipPage:" destination="-1" eventType="touchUpInside" id="24"/>
                     </connections>
                 </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="E9V-Wj-Qhd">
+                    <rect key="frame" x="0.0" y="1250" width="1024" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

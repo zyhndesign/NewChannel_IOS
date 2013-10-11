@@ -54,31 +54,41 @@
     titleLb = [[UILabel alloc] initWithFrame:CGRectMake(14, 240, 201, 35)];
     titleLb.backgroundColor = [UIColor clearColor];
     titleLb.textColor       = RedColor;
+    titleLb.textAlignment = NSTextAlignmentCenter;
     titleLb.font = [UIFont boldSystemFontOfSize:17];
     titleLb.text = [_infoDict objectForKey:@"name"];
     [whiteView addSubview:titleLb];
-    
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(9, 278, 223, 70)];
+   
+    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(9, 278, 223, 105)];
     detailTextV.backgroundColor = [UIColor clearColor];
-    detailTextV.textColor       =  [UIColor darkGrayColor];
-    detailTextV.font = [UIFont systemFontOfSize:13];
-    detailTextV.text = [_infoDict objectForKey:@"description"];
-    detailTextV.editable = NO;
+    detailTextV.textColor       = [UIColor darkGrayColor];
+    detailTextV.editable      = NO;
     detailTextV.scrollEnabled = NO;
+    detailTextV.userInteractionEnabled = YES;
     [whiteView addSubview:detailTextV];
+    
+    UITapGestureRecognizer *tapGestureRTT = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
+    [detailTextV addGestureRecognizer:tapGestureRTT];
+    [tapGestureRTT release];
+    
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 6.0f;
+    paragraphStyle.firstLineHeadIndent = 0.0f;
+    NSString *string = [_infoDict objectForKey:@"description"];
+    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
+    
+    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
+    detailTextV.attributedText = atrriString;
+    
+    [paragraphStyle release];
+    [atrriString    release];
     
     ///////////
     UIImageView *redImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"time_bg.png"]];
     [redImageV setFrame:CGRectMake(0, 15, 90, 53)];
     [self addSubview:redImageV];
     [redImageV release];
-    
-    titleLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 10, 60, 22)];
-    titleLb.textAlignment = NSTextAlignmentRight;
-    titleLb.backgroundColor = [UIColor clearColor];
-    titleLb.textColor = [UIColor whiteColor];
-    titleLb.font = [UIFont systemFontOfSize:16];
-    [self addSubview:titleLb];
     
     yearLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 29, 60, 22)];
     yearLb.textAlignment = NSTextAlignmentRight;
@@ -122,9 +132,11 @@
         [proImageV setImage:[UIImage imageNamed:@"defultbg-210.png"]];
         ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
-        [proImageLoadNet loadImageFromUrl:imageURL];
+        proImageLoadNet.imageUrl = imageURL;
+        [QueueProHanle addTarget:proImageLoadNet];
         [proImageLoadNet release];
     }
+    
 }
 
 - (void)dealloc

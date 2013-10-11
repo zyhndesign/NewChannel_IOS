@@ -22,8 +22,7 @@
         urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/dataUpdate.json?category=13&lastUpdateDate=%@", timestampLast];
     else
         urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/dataUpdate.json?category=13&lastUpdateDate=0"];
-//    urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/dataUpdate.json?category=1&lastUpdateDate=0"];
-    urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/dataUpdate.json?category=13&lastUpdateDate=0"];
+//    urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/dataUpdate.json?category=13&lastUpdateDate=0"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10.0f];
     [request setHTTPMethod:@"GET"];
     

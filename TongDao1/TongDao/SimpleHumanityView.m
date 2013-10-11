@@ -38,6 +38,10 @@
 
 - (void)addView
 {
+    UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
+    [self addGestureRecognizer:tapGestureR];
+    [tapGestureR release];
+    
     titleLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 180, 40)];
     titleLb.textColor = RedColor;
     titleLb.backgroundColor = [UIColor clearColor];
@@ -54,11 +58,12 @@
     timeLb.font = [UIFont systemFontOfSize:17];
     [self addSubview:timeLb];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(16, 87, 188, 92)];
+    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(16, 87, 188, 120)];
     detailTextV.font = [UIFont systemFontOfSize:14];
     detailTextV.textColor = [UIColor blackColor];
     detailTextV.editable = NO;
     detailTextV.scrollEnabled = NO;
+    detailTextV.userInteractionEnabled = NO;
     [self addSubview:detailTextV];
     
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(20, 204, 180, 180)];
@@ -67,6 +72,16 @@
     if (Mode == 0)
         [self modeTwo];
     
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 6.0f;
+    paragraphStyle.firstLineHeadIndent = 0.0f;
+    NSString *string = [_infoDict objectForKey:@"description"];
+    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
+    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
+    detailTextV.attributedText = atrriString;
+
+    [paragraphStyle release];
+    [atrriString    release];
     
     NSString *timeStr = [_infoDict objectForKey:@"postDate"];
     if (timeStr.length >= 8)
@@ -77,7 +92,6 @@
         timeLb.text = [NSString stringWithFormat:@"%@/%@/%@", yearStr, monthSt, dayStr];
     }
     titleLb.text       = [_infoDict objectForKey:@"name"];
-    detailTextV.text   = [_infoDict objectForKey:@"description"];
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
     NSArray *tempAry = [imageURL componentsSeparatedByString:@"."];
     imageURL = [tempAry objectAtIndex:0];
@@ -102,7 +116,8 @@
         [proImageV setImage:[UIImage imageNamed:@"defultbg-180.png"]];
         ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
-        [proImageLoadNet loadImageFromUrl:imageURL];
+        proImageLoadNet.imageUrl = imageURL;
+        [QueueProHanle addTarget:proImageLoadNet];
         [proImageLoadNet release];
     }
 

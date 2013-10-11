@@ -216,7 +216,7 @@ static BOOL nextOpOver = YES;
 		//  [NSString stringWithFormat:@"Time Played: %.1f/%.1f seconds",progress,duration]];
 		if (duration > 0)
 		{
-            [progreLb setFrame:CGRectMake(0, 47, progress*1024/duration, 3)];
+            [progreLb setFrame:CGRectMake(-2, 47, progress*1024/duration, 3)];
 		}
 		else
 		{
@@ -292,7 +292,7 @@ static BOOL nextOpOver = YES;
         [activeView stopAnimating];
         [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_play_normal.png"] forState:UIControlStateNormal];
         [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_play_pressed.png"] forState:UIControlStateHighlighted];
-        [progreLb setFrame:CGRectMake(0, 47, 0, 3)];
+        [progreLb setFrame:CGRectMake(-2, 47, 0, 3)];
 		[self destroyStreamer];
 	}
 }

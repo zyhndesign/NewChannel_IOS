@@ -8,6 +8,7 @@
 
 #import "CommunityViewContr.h"
 #import "SimpleHumanityView.h"
+#import "AllVariable.h"
 
 @interface CommunityViewContr ()
 
@@ -29,35 +30,61 @@
     [super viewDidLoad];
 }
 
+#define PageSize 4
+- (void)didReceiveMemoryWarning
+{
+    NSLog(@"didReceiveMemoryWarning");
+    if (AllScrollView.contentOffset.y >= 90 + 668*8 && AllScrollView.contentOffset.y < 90 + 668*10)
+    {
+        
+    }
+    else
+    {
+        int currentPage = contentScrolV.contentOffset.x/1024 + 1;
+        for(UIView *view in [contentScrolV subviews])
+        {
+            if (view.tag == 0)
+                continue;
+            if (view.tag <= PageSize*(currentPage-1) || view.tag > PageSize*(currentPage+1))
+            {
+                [view removeFromSuperview];
+            }
+        }
+    }
+    [super didReceiveMemoryWarning];
+}
 #define StartX 72
 #define StartY 155
 - (void)loadSubview:(NSArray*)ary
 {
     initAry = [ary retain];
-    int page = initAry.count/4;
-    if (initAry.count%4)
+    int page = initAry.count/PageSize;
+    if (initAry.count%PageSize)
         page++;
     if (page > 1)
         rightBg.hidden = NO;
     [contentScrolV setContentSize:CGSizeMake(page*1024, contentScrolV.frame.size.height)];
     
-    for (int i = 0; i < page; i++)
-    {
-        UILabel *topLine = [[UILabel alloc] initWithFrame:CGRectMake(StartX + i*1024, StartY - 2, 880, 1)];
-        topLine.backgroundColor = [UIColor lightGrayColor];
-        [contentScrolV addSubview:topLine];
-        [topLine release];
-        
-        UILabel *bottomLine = [[UILabel alloc] initWithFrame:CGRectMake(StartX + i*1024, StartY + 401, 880, 1)];
-        bottomLine.backgroundColor = [UIColor lightGrayColor];
-        [contentScrolV addSubview:bottomLine];
-        [bottomLine release];
-    }
+    pageLenght = 880/page;
+    
+    UILabel *topLine = [[UILabel alloc] initWithFrame:CGRectMake(StartX, contentScrolV.frame.origin.y + StartY - 2, 880, 1)];
+    topLine.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:topLine];
+    [topLine release];
+    
+    UILabel *bottomLine = [[UILabel alloc] initWithFrame:CGRectMake(StartX, contentScrolV.frame.origin.y + StartY + 401, 880, 2)];
+    bottomLine.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:bottomLine];
+    [bottomLine release];
+    
+    progressLb = [[UILabel alloc] initWithFrame:CGRectMake(StartX, contentScrolV.frame.origin.y + StartY + 401, pageLenght, 2)];
+    progressLb.backgroundColor = RedColor;
+    [self.view addSubview:progressLb];
     
     for (int i = 0; i < initAry.count; i++)
     {
-        page = i/4;
-        if ((i+1)%4 && i!=(initAry.count-1))
+        page = i/PageSize;
+        if (i%PageSize)
         {
             UILabel *midLb = [[UILabel alloc] initWithFrame:CGRectMake(page*1024 + StartX + (i%4)*220 -1, StartY + 15, 1, 400 - 30)];
             midLb.backgroundColor = [UIColor lightGrayColor];
@@ -67,7 +94,7 @@
     }
     for (int i = 0; i < initAry.count && i < 18; i++)
     {
-        page = i/4;
+        page = i/PageSize;
         SimpleHumanityView *simpleHimanView = [[SimpleHumanityView alloc] initWithInfoDict:[initAry objectAtIndex:i] mode:i%2];
         simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%4)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
         simpleHimanView.tag = i + 1;
@@ -76,18 +103,21 @@
     }
 }
 
+
 - (void)rebuildNewMenuView:(int)midPage
 {
-    for (int i = (midPage-2)*4; i < initAry.count && i < (midPage+2)*4; i++)
+    if (initAry.count < PageSize*3)  // 3页之内不做处理，只有内存警告是才删除多余的
+        return;
+    for (int i = (midPage-2)*PageSize; i < initAry.count && i < (midPage+3)*PageSize; i++)
     {
         if (i < 0)
             continue;
         SimpleHumanityView *simpleHimanView = (SimpleHumanityView*)[contentScrolV viewWithTag:i+1];
         if (!simpleHimanView)
         {
-            int page = i/4;
+            int page = i/PageSize;
             simpleHimanView = [[SimpleHumanityView alloc] initWithInfoDict:[initAry objectAtIndex:i] mode:i%2];
-            simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%4)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
+            simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%PageSize)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
             simpleHimanView.tag = i + 1;
             [contentScrolV addSubview:simpleHimanView];
             [simpleHimanView release];
@@ -97,14 +127,16 @@
 
 - (void)rebulidCurrentPage:(int)currentPage
 {
-    for (int i = currentPage*4; i < initAry.count && i < (currentPage+1)*4; i++)
+    if (initAry.count < PageSize*3)  // 3页之内不做处理，只有内存警告是才删除多余的
+        return;
+    for (int i = (currentPage-2)*PageSize; i < initAry.count && i < (currentPage+3)*PageSize; i++)
     {
         if (i < 0)
             continue;
         SimpleHumanityView *simpleHimanView = (SimpleHumanityView*)[contentScrolV viewWithTag:i+1];
         if (!simpleHimanView)
         {
-            int page = i/4;
+            int page = i/PageSize;
             simpleHimanView = [[SimpleHumanityView alloc] initWithInfoDict:[initAry objectAtIndex:i] mode:i%2];
             simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%4)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
             simpleHimanView.tag = i + 1;
@@ -117,11 +149,12 @@
 
 - (void)removeRemainMenuView:(int)midPage
 {
+    if (initAry.count < PageSize*3)  // 3页之内不做处理，只有内存警告是才删除多余的
+        return;
     for(UIView *view in [contentScrolV subviews])
     {
-        if (view.tag < (midPage - 2)*4 + 1 || view.tag > (midPage + 2)*4 + 1)
+        if ((view.tag > 0 && view.tag < (midPage - 2)*PageSize + 1) || view.tag > (midPage + 3)*PageSize + 1)
         {
-            NSLog(@"%d-->remove:%p",(view.tag-1)/6, view);
             [view removeFromSuperview];
         }
     }
@@ -194,7 +227,10 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self rebulidCurrentPage:(scrollView.contentOffset.x+100)/1024];
+    NSLog(@"endDecelering");
+    NSInteger page = (scrollView.contentOffset.x+100)/1024;
+    [self rebulidCurrentPage:page + 1];
+    [progressLb setFrame:CGRectMake(StartX + page*pageLenght, progressLb.frame.origin.y, progressLb.frame.size.width, progressLb.frame.size.height)];
     if (scrollView.contentSize.width == 1024)
     {
         leftBt.hidden  = YES;

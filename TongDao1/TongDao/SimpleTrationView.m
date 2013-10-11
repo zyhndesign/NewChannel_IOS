@@ -60,15 +60,25 @@
     [self addSubview:midLineLb];
     
     detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(40, 279, 225, 105)];
-    detailTextV.font = [UIFont systemFontOfSize:14];
-    detailTextV.textColor = [UIColor whiteColor];
+    detailTextV.textColor       = [UIColor whiteColor];
     detailTextV.backgroundColor = [UIColor clearColor];
-    detailTextV.editable = NO;
+    detailTextV.editable      = NO;
     detailTextV.scrollEnabled = NO;
+    detailTextV.userInteractionEnabled = NO;
     [self addSubview:detailTextV];
     
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 6.0f;
+    paragraphStyle.firstLineHeadIndent = 0.0f;
+    NSString *string = [_infoDict objectForKey:@"description"];
+    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName,nil];
+    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
+    detailTextV.attributedText = atrriString;
+    
+    [paragraphStyle release];
+    [atrriString    release];
+    
     titleLb.text       = [_infoDict objectForKey:@"name"];
-    detailTextV.text   = [[_infoDict objectForKey:@"description"] stringByAppendingString:[_infoDict objectForKey:@"description"]];
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
     NSArray *tempAry = [imageURL componentsSeparatedByString:@"."];
     imageURL = [tempAry objectAtIndex:0];
@@ -94,7 +104,8 @@
         [proImageV setImage:[UIImage imageNamed:@"defultbg-420.png"]];
         ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
-        [proImageLoadNet loadImageFromUrl:imageURL];
+        proImageLoadNet.imageUrl = imageURL;
+        [QueueProHanle addTarget:proImageLoadNet];
         [proImageLoadNet release];
     }
 }

@@ -9,22 +9,23 @@
 #import "LoadZipFileNet.h"
 #import "MFSP_MD5.h"
 #import "ZipArchive.h"
+#import "AllVariable.h"
 
 @implementation LoadZipFileNet
 
 @synthesize delegate;
 @synthesize md5Str;
 @synthesize urlStr;
+@synthesize zipStr;
 
-- (void)loadMenuFromUrl:(NSString*)ZipStr
+- (void)loadMenuFromUrl
 {
     //http://lotusprize.com/travel/bundles/eae27d77ca20db309e056e3d2dcd7d69.zip
-    zipStr = ZipStr;
     connectNum = 0;
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0f];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"GET"];
     
-    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connect)
     {
         backData = [[NSMutableData data] retain];
@@ -62,6 +63,7 @@
 {
     if (connectNum == 2)
     {
+        [QueueZipHandle taskFinish];
         if ([delegate respondsToSelector:@selector(didReceiveErrorCode:)])
             [delegate didReceiveErrorCode:error];
     }
@@ -73,10 +75,6 @@
     
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    
-}
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
@@ -130,6 +128,7 @@
         NSLog(@"md5Error");
         [fileManager removeItemAtPath:filePath error:nil];
     }
+    [QueueZipHandle taskFinish];
 }
 
 - (void)dealloc
@@ -138,6 +137,7 @@
         [backData release];
     [urlStr release];
     [md5Str release];
+    [zipStr release];
     [super dealloc];
 }
 

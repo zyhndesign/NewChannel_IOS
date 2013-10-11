@@ -28,11 +28,14 @@
 {
     [super viewDidLoad];
     [activeView startAnimating];
-    
+    AllScrollView = _scrollView;
+    _scrollView.bounces = YES;
     otherContentV.hidden = YES;
     stopAllView.hidden = NO;
     slipLb.backgroundColor = RedColor;
     slipLb.hidden = YES;
+    [QueueProHanle   init];
+    [QueueZipHandle  init];
     
     [self performSelector:@selector(MainViewLayerOut) withObject:nil afterDelay:0.3];
     
@@ -103,19 +106,18 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if (scrollView.contentOffset.y < 768*5)
+        scrollView.backgroundColor = [UIColor blackColor];
+    else
+        scrollView.backgroundColor = [UIColor colorWithRed:33/255.0 green:33/255.0 blue:33/255.0 alpha:1];
     if (!isCloseMenuScrol)
     {
-        int positionY = scrollView.contentOffset.y;
-        if (positionY > 768)
-        {
+        int positionY = 668 - scrollView.contentOffset.y;
+        positionY = positionY < 0 ? 0:positionY;
+        positionY = positionY > 668 ? 668:positionY;
+        [btView setFrame:CGRectMake(0, positionY, btView.frame.size.width, btView.frame.size.height)];
+        if (positionY <= 0)
             isCloseMenuScrol = YES;
-            [btView setFrame:CGRectMake(0, 0, btView.frame.size.width, btView.frame.size.height)];
-        }
-        else
-        {
-            [btView setFrame:CGRectMake(0, 768 - positionY, btView.frame.size.width, btView.frame.size.height)];
-        }
-        
     }
     if (handleScrol)
         return;
@@ -210,9 +212,12 @@ static BOOL handleScrol;
 - (void)presentViewContr:(ContentViewContr*)contentViewContr
 {
     if (AllOnlyShowPresentOne == 1)
+    {
+        [contentViewContr release];
         return;
+    }
     AllOnlyShowPresentOne = 1;
-    stopAllView.hidden = NO;
+    stopAllView.hidden   = NO;
     otherContentV.hidden = NO;
     contentViewContr.view.center = CGPointMake(1024+ 512, contentViewContr.view.frame.size.height/2);
     [otherContentV addSubview:contentViewContr.view];
@@ -253,8 +258,8 @@ static BOOL handleScrol;
     [LocalSQL closeDataBase];
     
     [homePageViewCtr  loadSubview:cateOne];
-    [landscapeViewCtr loadSubview:cateThr];
-    [humanityViewCtr  loadSubview:cateTwo];
+    [landscapeViewCtr loadSubview:cateTwo];
+    [humanityViewCtr  loadSubview:cateThr];
     [storyViewCtr     loadSubview:cateFou];
     [communityViewCtr loadSubview:cateFiv];
     

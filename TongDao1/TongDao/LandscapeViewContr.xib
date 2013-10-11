@@ -10,6 +10,7 @@
                 <outlet property="contentScrolV" destination="5" id="21"/>
                 <outlet property="leftBt" destination="22" id="24"/>
                 <outlet property="mainImageV" destination="18" id="19"/>
+                <outlet property="pageControl" destination="uug-7R-5wL" id="fEx-iU-Afg"/>
                 <outlet property="rightBg" destination="23" id="25"/>
                 <outlet property="view" destination="4" id="15"/>
             </connections>
@@ -84,6 +85,13 @@
                         <action selector="skipPage:" destination="-1" eventType="touchUpInside" id="28"/>
                     </connections>
                 </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="uug-7R-5wL">
+                    <rect key="frame" x="0.0" y="1270" width="1024" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

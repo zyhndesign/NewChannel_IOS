@@ -15,6 +15,7 @@
     
     IBOutlet UIButton *leftBt;
     IBOutlet UIButton *rightBg;
+    IBOutlet UIPageControl *pageControl;
     NSArray *initAry;
 }
 - (void)loadSubview:(NSArray*)ary;

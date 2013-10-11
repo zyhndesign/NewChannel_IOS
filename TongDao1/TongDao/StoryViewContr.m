@@ -10,6 +10,7 @@
 #import "SimpleTrationView.h"
 #import "SimpleTrationSmallView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AllVariable.h"
 
 
 
@@ -32,6 +33,29 @@
     [super viewDidLoad];
 }
 
+#define PageSize 5
+- (void)didReceiveMemoryWarning
+{
+    NSLog(@"didReceiveMemoryWarning");
+    if (AllScrollView.contentOffset.y >= 90 + 668*6 && AllScrollView.contentOffset.y < 90 + 668*8)
+    {
+        
+    }
+    else
+    {
+        int currentPage = contentScrolV.contentOffset.x/1024 + 1;
+        for(UIView *view in [contentScrolV subviews])
+        {
+            if (view.tag == 0)
+                continue;
+            if (view.tag <= PageSize*(currentPage-1) || view.tag > PageSize*(currentPage+1))
+            {
+                [view removeFromSuperview];
+            }
+        }
+    }
+    [super didReceiveMemoryWarning];
+}
 #define StartX 82
 #define StartY 134
 #define StartSmalX 522
@@ -39,16 +63,23 @@
 - (void)loadSubview:(NSArray*)ary
 {
     initAry = [ary retain];
-    int page = initAry.count/5;
-    if (initAry.count%5)
+    int page = initAry.count/PageSize;
+    if (initAry.count%PageSize)
         page++;
     if (page > 1)
         rightBg.hidden = NO;
+    if (page == 0)
+        page = 1;
+    pageControl.numberOfPages = page;
+    pageControl.currentPage = 0;
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    
     [contentScrolV setContentSize:CGSizeMake(1024*page, contentScrolV.frame.size.height)];
     for (int i = 0; i < initAry.count && i < 18; i++)
     {
-        page = i/5;
-        if (i%5 == 0)
+        page = i/PageSize;
+        if (i%PageSize == 0)
         {
             SimpleTrationView *simpleTranView = [[SimpleTrationView alloc] initWithInfoDict:[initAry objectAtIndex:i]];
             [simpleTranView setFrame:CGRectMake(page*1024 + StartX, StartY, simpleTranView.frame.size.width, simpleTranView.frame.size.height)];
@@ -60,11 +91,11 @@
         {
             int rowX = 0;
             int rowY = 0;
-            if (i%5 == 1 || i%5 == 3)
+            if (i%PageSize == 1 || i%PageSize == 3)
                 rowX = 0;
             else
                 rowX = 1;
-            if (i%5 == 1 || i%5 == 2)
+            if (i%PageSize == 1 || i%PageSize == 2)
                 rowY = 0;
             else
                 rowY = 1;
@@ -80,15 +111,17 @@
 
 - (void)rebuildNewMenuView:(int)midPage
 {
-    for (int i = (midPage-2)*5; i < initAry.count && i < (midPage+2)*5; i++)
+    if (initAry.count < PageSize*3)  // 3页之内不做处理，只有内存警告是才删除多余的
+        return;
+    for (int i = (midPage-2)*PageSize; i < initAry.count && i < (midPage+3)*PageSize; i++)
     {
         if (i < 0)
             continue;
         SimpleTrationSmallView *simpleTraSmalView = (SimpleTrationSmallView*)[contentScrolV viewWithTag:i+1];
         if (!simpleTraSmalView)
         {
-            int page = i/5;
-            if (i%5 == 0)
+            int page = i/PageSize;
+            if (i%PageSize == 0)
             {
                 SimpleTrationView *simpleTranView = [[SimpleTrationView alloc] initWithInfoDict:[initAry objectAtIndex:i]];
                 [simpleTranView setFrame:CGRectMake(page*1024 + StartX, StartY, simpleTranView.frame.size.width, simpleTranView.frame.size.height)];
@@ -100,11 +133,11 @@
             {
                 int rowX = 0;
                 int rowY = 0;
-                if (i%5 == 1 || i%5 == 3)
+                if (i%PageSize == 1 || i%PageSize == 3)
                     rowX = 0;
                 else
                     rowX = 1;
-                if (i%5 == 1 || i%5 == 2)
+                if (i%PageSize == 1 || i%PageSize == 2)
                     rowY = 0;
                 else
                     rowY = 1;
@@ -121,15 +154,17 @@
 
 - (void)rebulidCurrentPage:(int)currentPage
 {
-    for (int i = currentPage*4; i < initAry.count && i < (currentPage+1)*4; i++)
+    if (initAry.count < PageSize*3)  // 3页之内不做处理，只有内存警告是才删除多余的
+        return;
+    for (int i = (currentPage-2)*PageSize; i < initAry.count && i < (currentPage+3)*PageSize; i++)
     {
         if (i < 0)
             continue;
         SimpleTrationSmallView *simpleTraSmalView = (SimpleTrationSmallView*)[contentScrolV viewWithTag:i+1];
         if (!simpleTraSmalView)
         {
-            int page = i/5;
-            if (i%5 == 0)
+            int page = i/PageSize;
+            if (i%PageSize == 0)
             {
                 SimpleTrationView *simpleTranView = [[SimpleTrationView alloc] initWithInfoDict:[initAry objectAtIndex:i]];
                 [simpleTranView setFrame:CGRectMake(page*1024 + StartX, StartY, simpleTranView.frame.size.width, simpleTranView.frame.size.height)];
@@ -141,11 +176,11 @@
             {
                 int rowX = 0;
                 int rowY = 0;
-                if (i%5 == 1 || i%5 == 3)
+                if (i%PageSize == 1 || i%PageSize == 3)
                     rowX = 0;
                 else
                     rowX = 1;
-                if (i%5 == 1 || i%5 == 2)
+                if (i%PageSize == 1 || i%PageSize == 2)
                     rowY = 0;
                 else
                     rowY = 1;
@@ -163,11 +198,12 @@
 
 - (void)removeRemainMenuView:(int)midPage
 {
+    if (initAry.count < PageSize*3)  // 3页之内不做处理，只有内存警告是才删除多余的
+        return;
     for(UIView *view in [contentScrolV subviews])
     {
-        if (view.tag < (midPage - 2)*4 + 1 || view.tag > (midPage + 2)*4 + 1)
+        if (view.tag < (midPage - 2)*PageSize || view.tag > (midPage + 3)*PageSize)
         {
-            NSLog(@"%d-->remove:%p",(view.tag-1)/6, view);
             [view removeFromSuperview];
         }
     }
@@ -208,6 +244,12 @@
 }
 
 #pragma mark - scrollview delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int currentPage = scrollView.contentOffset.x/1024;
+    pageControl.currentPage = currentPage;
+}
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {

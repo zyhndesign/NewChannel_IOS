@@ -34,7 +34,7 @@
                     </connections>
                 </scrollView>
                 <view contentMode="scaleToFill" id="54" userLabel="View-Bt">
-                    <rect key="frame" x="0.0" y="768" width="1024" height="100"/>
+                    <rect key="frame" x="0.0" y="668" width="1024" height="100"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="64">
@@ -168,7 +168,7 @@
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="94">
                     <rect key="frame" x="974" y="718" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="0.0"/>
                     <state key="normal" backgroundImage="music_entrance.png">
                         <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
