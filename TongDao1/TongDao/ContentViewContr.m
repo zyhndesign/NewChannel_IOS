@@ -207,10 +207,6 @@
     [_webView setDelegate:nil];
     [_webView stopLoading];
     
-    ///// test sunyong
-    [self dismissViewControllerAnimated:YES completion:nil];
-    return;
-    
     [UIView animateWithDuration:0.3
                      animations:^(void){
                          [self.view setCenter:CGPointMake(1042+ 512, self.view.center.y)];
