@@ -10,11 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LocalSQL.h"
 #import "LoadMusicQue.h"
-#import "ContentViewContr.h"
 #import "ActiveView.h"
-#import "ImageViewShowContr.h"
+#import "ImageShowView.h"
 #import "AllVariable.h"
 #import "SCGIFImageView.h"
+#import "ContentView.h"
 
 @interface ViewController ()
 
@@ -76,7 +76,6 @@
     LoadMenuInfoNet *loadMenuInfoNet = [[LoadMenuInfoNet alloc] init];
     loadMenuInfoNet.delegate = self;
     [loadMenuInfoNet loadMenuFromUrl];
-    [loadMenuInfoNet release];
     
     audioPlayViewCtr = [[AudioPlayerViewCtr alloc] init];
     [audioPlayViewCtr.view setFrame:CGRectMake(0, 0, audioPlayViewCtr.view.frame.size.width, audioPlayViewCtr.view.frame.size.height)];
@@ -122,7 +121,7 @@
     }
     if (handleScrol)
         return;
-    int tag = (_scrollView.contentOffset.y+_scrollView.frame.size.height/2)/_scrollView.frame.size.height;
+    int tag = (_scrollView.contentOffset.y - 768*2 + _scrollView.frame.size.height/2)/668 + 2;
     tag = tag/2;
     
     UIButton *tempBt = (UIButton *)[btView viewWithTag:tag];
@@ -195,35 +194,39 @@ static BOOL handleScrol;
     }
 }
 
-- (void)imageScaleShow:(ImageViewShowContr*)imageViewSContr
+- (void)imageScaleShow:(NSString*)imageUrl
 {
+    NSLog(@"imageScaleShow");
     stopAllView.hidden = NO;
     otherContentV.hidden = NO;
-    [imageViewSContr.view setFrame:CGRectMake(0, 748, imageViewSContr.view.frame.size.width, imageViewSContr.view.frame.size.height)];
-    [otherContentV addSubview:imageViewSContr.view];
+    ImageShowView *imageShowView = [[ImageShowView alloc] initwithURL:imageUrl];
+    imageShowView.tag = 1010;
+    [otherContentV addSubview:imageShowView];
+    [imageShowView setFrame:CGRectMake(0, 768, 1024, 768)];
     [UIView animateWithDuration:0.3
                      animations:^(void){
-                         [imageViewSContr.view setFrame:CGRectMake(0, 0, imageViewSContr.view.frame.size.width, imageViewSContr.view.frame.size.height)];
+                         [imageShowView setFrame:CGRectMake(0, 0, 1024, 768)];
                      }
                      completion:^(BOOL finish){
                          stopAllView.hidden = YES;
                      }];
 }
 
-- (void)presentViewContr:(ContentViewContr*)contentViewContr
+- (void)presentViewContr:(NSDictionary*)_infoDict
 {
     if (AllOnlyShowPresentOne == 1)
     {
         return;
     }
     AllOnlyShowPresentOne = 1;
-    stopAllView.hidden   = NO;
+    stopAllView.hidden = NO;
     otherContentV.hidden = NO;
-    contentViewContr.view.center = CGPointMake(1024+ 512, contentViewContr.view.frame.size.height/2);
-    [otherContentV addSubview:contentViewContr.view];
+    ContentView *contentV = [[ContentView alloc] initWithInfoDict:_infoDict];
+    [contentV setFrame:CGRectMake(1024, 0, 1024, 768)];
+    [otherContentV addSubview:contentV];
     [UIView animateWithDuration:0.3
                      animations:^(void){
-                         [contentViewContr.view setCenter:CGPointMake(512, contentViewContr.view.center.y)];
+                         [contentV setFrame:CGRectMake(0, 0, 1024, 768)];
                      }
                      completion:^(BOOL finish){
                          stopAllView.hidden = YES;

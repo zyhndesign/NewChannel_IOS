@@ -16,8 +16,6 @@
 #import "AudioPlayerViewCtr.h"
 #import "VersionViewContr.h"
 
-@class ContentViewContr;
-@class ImageViewShowContr;
 @interface ViewController : UIViewController<NetworkDelegate, UIScrollViewDelegate>
 {
     IBOutlet UIScrollView *_scrollView;
@@ -46,6 +44,6 @@
 @property(nonatomic, assign)IBOutlet UIView *otherContentV;
 - (IBAction)selectMenu:(UIButton*)sender;
 - (IBAction)musicShow:(UIButton*)sender;
-- (void)imageScaleShow:(ImageViewShowContr*)imageViewSContr;
-- (void)presentViewContr:(ContentViewContr*)contentViewContr;
+- (void)imageScaleShow:(NSString*)imageUrl;
+- (void)presentViewContr:(NSDictionary*)_infoDict;
 @end

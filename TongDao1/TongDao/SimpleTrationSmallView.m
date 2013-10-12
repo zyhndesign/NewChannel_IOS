@@ -9,7 +9,7 @@
 #import "SimpleTrationSmallView.h"
 #import "ProImageLoadNet.h"
 #import "AllVariable.h"
-#import "ContentViewContr.h"
+#import "ContentView.h"
 #import "ViewController.h"
 
 @implementation SimpleTrationSmallView
@@ -28,7 +28,7 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, 200, 200)];
     if (self) {
-        _infoDict = [infoDict retain];
+        _infoDict = [[NSDictionary alloc] initWithDictionary:infoDict];
         [self addView];
     }
     return self;
@@ -43,7 +43,6 @@
     bgLb.alpha = 0.65;
     bgLb.backgroundColor = [UIColor blackColor];
     [self addSubview:bgLb];
-    [bgLb release];
     
     titleLb  = [[UILabel alloc] initWithFrame:CGRectMake(10, self.frame.size.height-40, self.frame.size.width - 10, 40)];
     titleLb.backgroundColor = [UIColor clearColor];
@@ -54,7 +53,6 @@
     
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];
-    [tapGestureR release];
     
     titleLb.text = [_infoDict objectForKey:@"name"];
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
@@ -84,16 +82,16 @@
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = imageURL;
         [QueueProHanle addTarget:proImageLoadNet];
-        [proImageLoadNet release];
     }
 }
 
 - (void)dealloc
 {
-    [proImageV release];
-    [titleLb   release];
-    [_infoDict release];
-    [super dealloc];
+    [proImageV removeFromSuperview];
+    proImageV = nil;
+    [titleLb   removeFromSuperview];
+    titleLb   = nil;
+    _infoDict = nil;
 }
 
 #pragma mark - tapGesture
@@ -104,8 +102,7 @@
     {
         return;
     }
-    ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:_infoDict];
-    [RootViewContr presentViewContr:contentV];
+    [RootViewContr presentViewContr:_infoDict];
 }
 
 #pragma mark - net delegate

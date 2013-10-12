@@ -1,8 +1,8 @@
 //
-//  ImageViewShowContr.h
-//  GYSJ
+//  ImageShowView.h
+//  YouYang
 //
-//  Created by sunyong on 13-9-9.
+//  Created by sunyong on 13-10-11.
 //  Copyright (c) 2013年 sunyong. All rights reserved.
 //
 
@@ -12,11 +12,12 @@
 
 @class ProImageLoadNet;
 
-@interface ImageViewShowContr : UIViewController<NetworkDelegate>
+@interface ImageShowView : UIView<NetworkDelegate, UIScrollViewDelegate>
 {
+    UIImageView  *imageView;
+    UIScrollView *scrllview;
+    UILabel *bgLabel;
     
-    IBOutlet UIImageView  *imageView;
-	IBOutlet UIScrollView *scrllview;
     CGFloat lastDistance;
 	
 	CGFloat imgStartWidth;
@@ -28,4 +29,5 @@
 }
 
 - (id)initwithURL:(NSString*)URLStr;
+
 @end

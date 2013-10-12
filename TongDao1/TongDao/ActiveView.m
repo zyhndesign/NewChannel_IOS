@@ -57,12 +57,16 @@
 
 - (void)dealloc
 {
-    [oneLb release];
-    [two_oneLb release];
-    [two_twoLb release];
-    [thr_oneLb release];
-    [thr_twoLb release];
-    [super dealloc];
+    [oneLb removeFromSuperview];
+    [two_oneLb removeFromSuperview];
+    [two_twoLb removeFromSuperview];
+    [thr_oneLb removeFromSuperview];
+    [thr_twoLb removeFromSuperview];
+    oneLb     = nil;
+    two_oneLb = nil;
+    two_twoLb = nil;
+    thr_oneLb = nil;
+    thr_twoLb = nil;
 }
 
 - (void)startActive

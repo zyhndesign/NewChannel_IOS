@@ -58,7 +58,7 @@
 #define StartY 115
 - (void)loadSubview:(NSArray*)ary
 {
-    initAry = [ary retain];
+    initAry = [[NSArray alloc] initWithArray:ary];
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
@@ -71,12 +71,10 @@
     UILabel *topLine = [[UILabel alloc] initWithFrame:CGRectMake(StartX, contentScrolV.frame.origin.y + StartY - 2, 880, 1)];
     topLine.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:topLine];
-    [topLine release];
     
     UILabel *bottomLine = [[UILabel alloc] initWithFrame:CGRectMake(StartX, contentScrolV.frame.origin.y + StartY + 401, 880, 2)];
     bottomLine.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:bottomLine];
-    [bottomLine release];
     
     progressLb = [[UILabel alloc] initWithFrame:CGRectMake(StartX, contentScrolV.frame.origin.y + StartY + 401, pageLenght, 2)];
     progressLb.backgroundColor = RedColor;
@@ -90,7 +88,6 @@
             UILabel *midLb = [[UILabel alloc] initWithFrame:CGRectMake(page*1024 + StartX + (i%PageSize)*220 -1, StartY + 15, 1, 400 - 30)];
             midLb.backgroundColor = [UIColor lightGrayColor];
             [contentScrolV addSubview:midLb];
-            [midLb release];
         }
     }
     for (int i = 0; i < initAry.count && i < PageSize*3; i++)
@@ -100,7 +97,6 @@
         simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%PageSize)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
         simpleHimanView.tag = i + 1;
         [contentScrolV addSubview:simpleHimanView];
-        [simpleHimanView release];
     }
 }
 
@@ -120,7 +116,6 @@
             simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%PageSize)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
             simpleHimanView.tag = i + 1;
             [contentScrolV addSubview:simpleHimanView];
-            [simpleHimanView release];
         }
     }
 }
@@ -142,8 +137,6 @@
             simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%PageSize)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
             simpleHimanView.tag = i + 1;
             [contentScrolV addSubview:simpleHimanView];
-            [simpleHimanView release];
-            
         }
     }
 }
@@ -164,8 +157,7 @@
 
 - (void)dealloc
 {
-    [initAry release];
-    [super dealloc];
+    initAry = nil;
 }
 
 

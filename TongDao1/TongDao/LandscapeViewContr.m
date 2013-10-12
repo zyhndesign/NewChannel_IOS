@@ -61,7 +61,7 @@
 #define Gap 15
 - (void)loadSubview:(NSArray*)ary
 {
-    initAry = [ary retain];
+    initAry = [[NSArray alloc] initWithArray:ary];;
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
@@ -83,7 +83,6 @@
         [simleLandscView setFrame:CGRectMake(page*1024 + StartX + rowX*Gap + rowX*simleLandscView.frame.size.width, StartY+rowY*Gap+rowY*simleLandscView.frame.size.height, simleLandscView.frame.size.width, simleLandscView.frame.size.height)];
         simleLandscView.tag = i + 1;
         [contentScrolV addSubview:simleLandscView];
-        [simleLandscView release];
     }
 }
 
@@ -106,7 +105,6 @@
             [simleLandscView setFrame:CGRectMake(page*1024 + StartX + rowX*Gap + rowX*simleLandscView.frame.size.width, StartY+rowY*Gap+rowY*simleLandscView.frame.size.height, simleLandscView.frame.size.width, simleLandscView.frame.size.height)];
             simleLandscView.tag = i + 1;
             [contentScrolV addSubview:simleLandscView];
-            [simleLandscView release];
         }
     }
 }
@@ -130,7 +128,6 @@
             [simpleLandscView setFrame:CGRectMake(page*1024 + StartX + rowX*Gap + rowX*simpleLandscView.frame.size.width, StartY+rowY*Gap+rowY*simpleLandscView.frame.size.height, simpleLandscView.frame.size.width, simpleLandscView.frame.size.height)];
             simpleLandscView.tag = i + 1;
             [contentScrolV addSubview:simpleLandscView];
-            [simpleLandscView release];
         }
     }
 }
@@ -150,8 +147,7 @@
 
 - (void)dealloc
 {
-    [initAry release];
-    [super dealloc];
+    initAry = nil;
 }
 
 - (IBAction)skipPage:(UIButton*)sender

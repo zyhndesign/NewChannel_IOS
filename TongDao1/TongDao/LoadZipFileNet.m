@@ -28,14 +28,12 @@
     NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connect)
     {
-        backData = [[NSMutableData data] retain];
+        backData = [[NSMutableData alloc] init];
     }
     else
     {
         backData = nil;
     }
-    [request release];
-    [connect release];
 }
 
 - (void)reloadUrlData
@@ -46,17 +44,12 @@
     NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connect)
     {
-        if (backData)
-            [backData release];
-        backData = [[NSMutableData data] retain];
+        backData = [[NSMutableData alloc] init];
     }
     else
     {
-        if (backData)
-            [backData release];
+        backData = nil;
     }
-    [request release];
-    [connect release];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -113,7 +106,6 @@
             }
             [zip UnzipCloseFile];
         }
-        [zip release];
         // 解压成功后，删除zip包
         if (isResult)
         {
@@ -133,12 +125,10 @@
 
 - (void)dealloc
 {
-    if (backData)
-        [backData release];
-    [urlStr release];
-    [md5Str release];
-    [zipStr release];
-    [super dealloc];
+    backData = nil;
+    urlStr = nil;
+    md5Str = nil;
+    zipStr = nil;
 }
 
 @end

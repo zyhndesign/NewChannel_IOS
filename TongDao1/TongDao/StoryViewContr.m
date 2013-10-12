@@ -62,7 +62,7 @@
 #define Gap 20
 - (void)loadSubview:(NSArray*)ary
 {
-    initAry = [ary retain];
+    initAry = [[NSArray alloc] initWithArray:ary];
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
@@ -85,7 +85,6 @@
             [simpleTranView setFrame:CGRectMake(page*1024 + StartX, StartY, simpleTranView.frame.size.width, simpleTranView.frame.size.height)];
             simpleTranView.tag = i + 1;
             [contentScrolV addSubview:simpleTranView];
-            [simpleTranView release];
         }
         else
         {
@@ -103,7 +102,6 @@
             [simpleTraSmalView setFrame:CGRectMake(1024*page + StartSmalX + rowX*simpleTraSmalView.frame.size.width + rowX*Gap, StartY + rowY*simpleTraSmalView.frame.size.height + rowY*Gap, simpleTraSmalView.frame.size.width, simpleTraSmalView.frame.size.height)];
             simpleTraSmalView.tag = i + 1;
             [contentScrolV addSubview:simpleTraSmalView];
-            [simpleTraSmalView release];
         }
     }
     
@@ -127,7 +125,6 @@
                 [simpleTranView setFrame:CGRectMake(page*1024 + StartX, StartY, simpleTranView.frame.size.width, simpleTranView.frame.size.height)];
                 [contentScrolV addSubview:simpleTranView];
                 simpleTranView.tag = i+1;
-                [simpleTranView release];
             }
             else
             {
@@ -145,7 +142,6 @@
                 [simpleTraSmalView setFrame:CGRectMake(1024*page + StartSmalX + rowX*simpleTraSmalView.frame.size.width + rowX*Gap, StartY + rowY*simpleTraSmalView.frame.size.height + rowY*Gap, simpleTraSmalView.frame.size.width, simpleTraSmalView.frame.size.height)];
                 [contentScrolV addSubview:simpleTraSmalView];
                 simpleTraSmalView.tag = i + 1;
-                [simpleTraSmalView release];
             }
 
         }
@@ -170,7 +166,6 @@
                 [simpleTranView setFrame:CGRectMake(page*1024 + StartX, StartY, simpleTranView.frame.size.width, simpleTranView.frame.size.height)];
                 [contentScrolV addSubview:simpleTranView];
                 simpleTranView.tag = i + 1;
-                [simpleTranView release];
             }
             else
             {
@@ -188,7 +183,6 @@
                 [simpleTraSmalView setFrame:CGRectMake(1024*page + StartSmalX + rowX*simpleTraSmalView.frame.size.width + rowX*Gap, StartY + rowY*simpleTraSmalView.frame.size.height + rowY*Gap, simpleTraSmalView.frame.size.width, simpleTraSmalView.frame.size.height)];
                 [contentScrolV addSubview:simpleTraSmalView];
                 simpleTraSmalView.tag = i + 1;
-                [simpleTraSmalView release];
             }
             
         }
@@ -212,8 +206,7 @@
 
 - (void)dealloc
 {
-    [initAry release];
-    [super dealloc];
+    initAry = nil;
 }
 
 

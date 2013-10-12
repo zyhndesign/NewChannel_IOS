@@ -1,15 +1,14 @@
 //
-//  ProImageLoadNet.m
-//  GYSJ
+//  HeadProImageNet.m
+//  TongDao
 //
-//  Created by sunyong on 13-9-12.
+//  Created by sunyong on 13-10-12.
 //  Copyright (c) 2013年 sunyong. All rights reserved.
 //
 
-#import "ProImageLoadNet.h"
-#import "AllVariable.h"
+#import "HeadProImageNet.h"
 
-@implementation ProImageLoadNet
+@implementation HeadProImageNet
 @synthesize delegate;
 @synthesize _infoDict;
 @synthesize imageUrl;
@@ -62,7 +61,6 @@
 {
     if (connectNum == 3)
     {
-        [QueueProHanle taskFinish];
         [delegate didReceiveErrorCode:error];
     }
     else
@@ -84,7 +82,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [connection cancel];
-    [QueueProHanle taskFinish];
     if(_infoDict == nil)
     {
         [delegate didReciveImage:[UIImage imageWithData:backData]];
@@ -107,6 +104,5 @@
     imageUrl = nil;
     _infoDict = nil;
 }
-
 
 @end

@@ -8,7 +8,7 @@
 
 #import "SimpleTrationView.h"
 #import "AllVariable.h"
-#import "ContentViewContr.h"
+#import "ContentView.h"
 #import "ProImageLoadNet.h"
 #import "ViewController.h"
 
@@ -28,7 +28,7 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, 420, 420)];
     if (self) {
-        _infoDict = [infoDict retain];
+        _infoDict = [[NSDictionary alloc] initWithDictionary:infoDict];
         [self addView];
     }
     return self;
@@ -39,7 +39,6 @@
 {
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];
-    [tapGestureR release];
     
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self addSubview:proImageV];
@@ -74,9 +73,7 @@
     NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName,nil];
     NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
     detailTextV.attributedText = atrriString;
-    
-    [paragraphStyle release];
-    [atrriString    release];
+
     
     titleLb.text       = [_infoDict objectForKey:@"name"];
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
@@ -106,19 +103,22 @@
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = imageURL;
         [QueueProHanle addTarget:proImageLoadNet];
-        [proImageLoadNet release];
     }
 }
 
 - (void)dealloc
 {
-    [proImageV   release];
-    [bgImageV    release];
-    [titleLb     release];
-    [midLineLb   release];
-    [detailTextV release];
-    [_infoDict   release];
-    [super dealloc];
+    [proImageV   removeFromSuperview];
+    proImageV   = nil;
+    [bgImageV    removeFromSuperview];
+    bgImageV    = nil;
+    [titleLb     removeFromSuperview];
+    titleLb     = nil;
+    [midLineLb   removeFromSuperview];
+    midLineLb   = nil;
+    [detailTextV removeFromSuperview];
+    detailTextV = nil;
+    _infoDict   = nil;
 }
 
 #pragma mark - tapGesture
@@ -129,8 +129,7 @@
     {
         return;
     }
-    ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:_infoDict];
-    [RootViewContr presentViewContr:contentV];
+    [RootViewContr presentViewContr:_infoDict];
 }
 
 #pragma mark - net delegate

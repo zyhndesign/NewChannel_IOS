@@ -7,9 +7,9 @@
 //
 
 #import "SimpleHeadLineView.h"
-#import "ProImageLoadNet.h"
+#import "HeadProImageNet.h"
 #import "AllVariable.h"
-#import "ContentViewContr.h"
+#import "ContentView.h"
 #import "ViewController.h"
 
 @implementation SimpleHeadLineView
@@ -30,7 +30,7 @@
     self = [super initWithFrame:CGRectMake(0, 0, 260, 410)];
     if (self)
     {
-        _infoDict = [infoDict retain];
+        _infoDict = [[NSDictionary alloc] initWithDictionary:infoDict];
         [self addView];
     }
     return self;
@@ -40,12 +40,10 @@
 {
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];
-    [tapGestureR release];
     
     UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(20, 0, self.frame.size.width - 20, self.frame.size.height)];
     whiteView.backgroundColor = [UIColor whiteColor];
     [self addSubview:whiteView];
-    [whiteView release];
     
     /////defultbg-210.png
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 210, 210)];
@@ -76,14 +74,10 @@
     NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
     detailTextV.attributedText = atrriString;
     
-    [paragraphStyle release];
-    [atrriString    release];
-    
     ///////////
     UIImageView *redImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"time_bg.png"]];
     [redImageV setFrame:CGRectMake(0, 15, 90, 53)];
     [self addSubview:redImageV];
-    [redImageV release];
     
     yearLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 29, 60, 22)];
     yearLb.textAlignment = NSTextAlignmentRight;
@@ -125,24 +119,27 @@
     else
     {
         [proImageV setImage:[UIImage imageNamed:@"defultbg-210.png"]];
-        ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
+        HeadProImageNet *proImageLoadNet = [[HeadProImageNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = imageURL;
         [proImageLoadNet loadImageFromUrl];
-        [proImageLoadNet release];
     }
     
 }
 
 - (void)dealloc
 {
-    [proImageV   release];
-    [titleLb     release];
-    [detailTextV release];
-    [timeLb      release];
-    [yearLb      release];
-    [_infoDict   release];
-    [super dealloc];
+    [proImageV   removeFromSuperview];
+    proImageV   = nil;
+    [titleLb     removeFromSuperview];
+    timeLb      = nil;
+    [detailTextV removeFromSuperview];
+    detailTextV = nil;
+    [timeLb      removeFromSuperview];
+    timeLb      = nil;
+    [yearLb      removeFromSuperview];
+    yearLb      = nil;
+    _infoDict   = nil;
 }
 
 #pragma mark - tapGesture
@@ -153,8 +150,7 @@
     {
         return;
     }
-    ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:_infoDict];
-    [RootViewContr presentViewContr:contentV];
+    [RootViewContr presentViewContr:_infoDict];
 }
 
 
