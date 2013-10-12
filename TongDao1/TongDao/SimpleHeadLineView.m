@@ -38,16 +38,12 @@
 
 - (void)addView
 {
-    UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
-    [self addGestureRecognizer:tapGestureR];
-    
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(20, 0, self.frame.size.width - 20, self.frame.size.height)];
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 260 - 20, 410)];
     whiteView.backgroundColor = [UIColor whiteColor];
     [self addSubview:whiteView];
     
-    /////defultbg-210.png
-    proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 210, 210)];
-    [whiteView addSubview:proImageV];
+    UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
+    [self addGestureRecognizer:tapGestureR];
     
     titleLb = [[UILabel alloc] initWithFrame:CGRectMake(14, 240, 201, 35)];
     titleLb.backgroundColor = [UIColor clearColor];
@@ -57,13 +53,23 @@
     titleLb.text = [_infoDict objectForKey:@"name"];
     [whiteView addSubview:titleLb];
    
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(9, 278, 223, 105)];
+    if (ios7)
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(29, 278, 223, 105)];
+    else
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(29, 278, 223, 81)];
+    
     detailTextV.backgroundColor = [UIColor clearColor];
     detailTextV.textColor       = [UIColor darkGrayColor];
     detailTextV.editable      = NO;
     detailTextV.scrollEnabled = NO;
     detailTextV.userInteractionEnabled = NO;
-    [whiteView addSubview:detailTextV];
+    [self addSubview:detailTextV];
+    
+    /////defultbg-210.png
+    proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 210, 210)];
+    [whiteView addSubview:proImageV];
+    
+    
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 6.0f;
@@ -124,7 +130,6 @@
         proImageLoadNet.imageUrl = imageURL;
         [proImageLoadNet loadImageFromUrl];
     }
-    
 }
 
 - (void)dealloc

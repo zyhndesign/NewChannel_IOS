@@ -28,7 +28,7 @@
  虽然通道物产丰富，森林覆盖率达74%，年产商品材17万立方米，但经济形式单一，至今仍然是全国贫困县，2008年农民人均纯收入1571元。
  本项目针对通道这样一个具备“独特的自然生态环境与丰富的非物质文化遗产”但经济发展落后的少数民族地区，整合不同专业和学科的优势，通过合理的村镇规划、生态旅游开发、信息与物流网络建设、产品与服务系统整合、非物质文化遗产保护等综合的工作方法，建立一个国际化的设计创新联盟和基于网络的信息平台，参与式的促进当地居民的文化自主意识和产业创新。在保持当地居民的和谐生活形态和发展需要的前提下，实现从落后的农耕文明社区，不经历资源消耗型的工业发展阶段，直接“蛙跳”进入以文化和信息为中心的创新社区，成为新型工业化和两型社会的典范。</string>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="section_title_background.png" id="8">

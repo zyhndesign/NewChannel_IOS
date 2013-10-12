@@ -58,7 +58,11 @@
     midLineLb.backgroundColor = [UIColor whiteColor];
     [self addSubview:midLineLb];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(40, 279, 225, 105)];
+    if (ios7)
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(40, 279, 225, 105)];
+    else
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(40, 279, 225, 100)];
+    
     detailTextV.textColor       = [UIColor whiteColor];
     detailTextV.backgroundColor = [UIColor clearColor];
     detailTextV.editable      = NO;

@@ -98,7 +98,7 @@
         if (i > 3)
             break;
         SimpleHeadLineView *simpleHLView = [[SimpleHeadLineView alloc] initWithInfoDict:[initAry objectAtIndex:i]];
-        [simpleHLView setFrame:CGRectMake(StartX + Gap*(i-1) + simpleHLView.frame.size.width*(i-1), StartY, simpleHLView.frame.size.height, simpleHLView.frame.size.width)];
+        [simpleHLView setFrame:CGRectMake(StartX + Gap*(i-1) + simpleHLView.frame.size.width*(i-1), StartY, simpleHLView.frame.size.width, simpleHLView.frame.size.height)];
         [contentScrolV addSubview:simpleHLView];
     }
 }

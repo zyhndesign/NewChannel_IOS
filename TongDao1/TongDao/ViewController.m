@@ -66,6 +66,8 @@
     versionViewCtr = [[VersionViewContr alloc] init];
     [versionViewCtr.view setFrame:CGRectMake(0, RemainSize + PageSize*10, versionViewCtr.view.frame.size.width, versionViewCtr.view.frame.size.height)];
     
+    
+    
     [_scrollView addSubview:homePageViewCtr.view];
     [_scrollView addSubview:landscapeViewCtr.view];
     [_scrollView addSubview:humanityViewCtr.view];

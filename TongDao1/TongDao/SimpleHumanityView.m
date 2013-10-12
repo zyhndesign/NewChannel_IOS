@@ -57,7 +57,11 @@
     timeLb.font = [UIFont systemFontOfSize:17];
     [self addSubview:timeLb];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(16, 87, 188, 120)];
+    if (ios7)
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(16, 87, 188, 120)];
+    else
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(16, 87, 188, 80)];
+
     detailTextV.font = [UIFont systemFontOfSize:14];
     detailTextV.textColor = [UIColor blackColor];
     detailTextV.editable = NO;
