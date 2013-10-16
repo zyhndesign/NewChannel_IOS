@@ -58,15 +58,14 @@
     [self addSubview:timeLb];
     
     if (ios7)
-        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(16, 87, 188, 120)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(20, 90, 188, 100)];
     else
-        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(16, 87, 188, 80)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(20, 90, 188, 100)];
 
     detailTextV.font = [UIFont systemFontOfSize:14];
     detailTextV.textColor = [UIColor blackColor];
-    detailTextV.editable = NO;
-    detailTextV.scrollEnabled = NO;
-    detailTextV.userInteractionEnabled = NO;
+    detailTextV.text = [_infoDict objectForKey:@"description"];
+    detailTextV.linesSpacing = 6;
     [self addSubview:detailTextV];
     
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(20, 204, 180, 180)];
@@ -74,15 +73,6 @@
     
     if (Mode == 0)
         [self modeTwo];
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 6.0f;
-    paragraphStyle.firstLineHeadIndent = 0.0f;
-    NSString *string = [_infoDict objectForKey:@"description"];
-    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
-    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
-    detailTextV.attributedText = atrriString;
-
     
     NSString *timeStr = [_infoDict objectForKey:@"postDate"];
     if (timeStr.length >= 8)
@@ -131,7 +121,7 @@
     [titleLb setFrame:CGRectMake(titleLb.frame.origin.x, titleLb.frame.origin.y + proImageV.frame.size.height + 20, titleLb.frame.size.width, titleLb.frame.size.height)];
     [midLineLb setFrame:CGRectMake(midLineLb.frame.origin.x, midLineLb.frame.origin.y + proImageV.frame.size.height + 20, midLineLb.frame.size.width, midLineLb.frame.size.height)];
     [timeLb setFrame:CGRectMake(timeLb.frame.origin.x, timeLb.frame.origin.y + proImageV.frame.size.height + 20, timeLb.frame.size.width, timeLb.frame.size.height)];
-    [detailTextV setFrame:CGRectMake(detailTextV.frame.origin.x, timeLb.frame.origin.y + timeLb.frame.size.height , detailTextV.frame.size.width, detailTextV.frame.size.height)];
+    [detailTextV setFrame:CGRectMake(detailTextV.frame.origin.x, timeLb.frame.origin.y + timeLb.frame.size.height + 4, detailTextV.frame.size.width, detailTextV.frame.size.height)];
     
 }
 

@@ -13,12 +13,9 @@
     IBOutlet UIScrollView *contentScrolV;
     IBOutlet UIImageView *mainImageV;
     
-    IBOutlet UIButton *leftBt;
-    IBOutlet UIButton *rightBg;
     IBOutlet UIPageControl *pageControl;
     NSArray *initAry;
 }
 - (void)loadSubview:(NSArray*)ary;
-- (IBAction)skipPage:(UIButton*)sender;
 
 @end

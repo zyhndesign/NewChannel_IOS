@@ -38,14 +38,14 @@
 
 - (void)addView
 {
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 260 - 20, 410)];
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 240, 410)];
     whiteView.backgroundColor = [UIColor whiteColor];
     [self addSubview:whiteView];
     
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];
     
-    titleLb = [[UILabel alloc] initWithFrame:CGRectMake(14, 240, 201, 35)];
+    titleLb = [[UILabel alloc] initWithFrame:CGRectMake(15, 240, 210, 35)];
     titleLb.backgroundColor = [UIColor clearColor];
     titleLb.textColor       = RedColor;
     titleLb.textAlignment = NSTextAlignmentCenter;
@@ -54,31 +54,30 @@
     [whiteView addSubview:titleLb];
    
     if (ios7)
-        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(29, 278, 223, 105)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(15, 285, 210, 95)];
     else
-        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(29, 278, 223, 81)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(15, 285, 210, 95)];
     
     detailTextV.backgroundColor = [UIColor clearColor];
-    detailTextV.textColor       = [UIColor darkGrayColor];
-    detailTextV.editable      = NO;
-    detailTextV.scrollEnabled = NO;
+    detailTextV.textColor       = [UIColor blackColor];
+    detailTextV.font = [UIFont systemFontOfSize:14];
     detailTextV.userInteractionEnabled = NO;
-    [self addSubview:detailTextV];
+    detailTextV.text = [_infoDict objectForKey:@"description"];
+    detailTextV.linesSpacing = 6;
+    [whiteView addSubview:detailTextV];
     
     /////defultbg-210.png
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 210, 210)];
     [whiteView addSubview:proImageV];
     
-    
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 6.0f;
-    paragraphStyle.firstLineHeadIndent = 0.0f;
-    NSString *string = [_infoDict objectForKey:@"description"];
-    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
-    
-    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
-    detailTextV.attributedText = atrriString;
+//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//    paragraphStyle.lineSpacing = 6.0f;
+//    paragraphStyle.firstLineHeadIndent = 0.0f;
+//    NSString *string = [_infoDict objectForKey:@"description"];
+//    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
+//    
+//    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
+//    detailTextV.attributedText = atrriString;
     
     ///////////
     UIImageView *redImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"time_bg.png"]];

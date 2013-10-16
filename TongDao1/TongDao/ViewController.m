@@ -293,7 +293,7 @@ static BOOL handleScrol;
     
     musicShowBt.hidden = NO;
     [launchImageV removeFromSuperview];
-    [activeView removeFromSuperview];
+    [activeView   removeFromSuperview];
     stopAllView.hidden = YES;
 }
 

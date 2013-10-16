@@ -66,8 +66,6 @@
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
-    if (page > 1)
-        rightBg.hidden = NO;
     if (page == 0)
         page = 1;
     pageControl.numberOfPages = page;
@@ -209,61 +207,12 @@
     initAry = nil;
 }
 
-
-- (IBAction)skipPage:(UIButton*)sender
-{
-    if (sender == leftBt)
-    {
-        if (contentScrolV.contentOffset.x >= 1024)
-        {
-            float offset = contentScrolV.contentOffset.x - 1024;
-            [contentScrolV setContentOffset:CGPointMake(contentScrolV.contentOffset.x - 1024, 0) animated:YES];
-            if(offset < 1000)
-                leftBt.hidden = YES;
-        }
-        rightBg.hidden = NO;
-    }
-    else
-    {
-        if (contentScrolV.contentOffset.x <= contentScrolV.contentSize.width - 1024)
-        {
-            float offset = contentScrolV.contentOffset.x + 1024;
-            [contentScrolV setContentOffset:CGPointMake(contentScrolV.contentOffset.x + 1024, 0) animated:YES];
-            if(offset > contentScrolV.contentSize.width - 1040)
-                rightBg.hidden = YES;
-        }
-        leftBt.hidden = NO;
-    }
-}
-
 #pragma mark - scrollview delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     int currentPage = scrollView.contentOffset.x/1024;
     pageControl.currentPage = currentPage;
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    if (!decelerate)
-    {
-        if (scrollView.contentSize.width == 1024)
-        {
-            leftBt.hidden  = YES;
-            rightBg.hidden = YES;
-            return;
-        }
-        if (scrollView.contentOffset.x < 1024 - 100)
-            leftBt.hidden = YES;
-        else
-            leftBt.hidden = NO;
-        
-        if (scrollView.contentOffset.x >= scrollView.contentSize.width - 1024 - 100)
-            rightBg.hidden = YES;
-        else
-            rightBg.hidden = NO;
-    }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -276,21 +225,6 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self rebulidCurrentPage:(scrollView.contentOffset.x+100)/1024];
-    if (scrollView.contentSize.width == 1024)
-    {
-        leftBt.hidden  = YES;
-        rightBg.hidden = YES;
-        return;
-    }
-    if (scrollView.contentOffset.x < 1024 - 100)
-        leftBt.hidden = YES;
-    else
-        leftBt.hidden = NO;
-    
-    if (scrollView.contentOffset.x >= scrollView.contentSize.width - 1024 - 100)
-        rightBg.hidden = YES;
-    else
-        rightBg.hidden = NO;
 }
 
 

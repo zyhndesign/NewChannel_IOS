@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
+#import "TextLayoutView.h"
 
 @interface SimpleTrationView : UIView<NetworkDelegate>
 {
@@ -15,7 +16,7 @@
     UIImageView *bgImageV;
     UILabel *titleLb;
     UILabel *midLineLb;
-    UITextView *detailTextV;
+    TextLayoutView *detailTextV;
     NSDictionary *_infoDict;
 }
 

@@ -311,10 +311,11 @@ static BOOL nextOpOver = YES;
 
 - (void)imply:(NSString*)infoStr
 {
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:infoStr delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alertView show];
-    [alertView release];
+    @autoreleasepool {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:infoStr delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+        [alertView release];
+    }
 }
 
 #pragma mark Remote Control Events

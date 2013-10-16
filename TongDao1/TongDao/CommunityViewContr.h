@@ -13,16 +13,12 @@
     IBOutlet UIScrollView *contentScrolV;
     IBOutlet UIImageView *mainImageV;
     
-    IBOutlet UIButton *leftBt;
-    IBOutlet UIButton *rightBg;
-    
     UILabel *progressLb;
     
     NSArray *initAry;
     int pageLenght;
 }
-- (void)loadSubview:(NSArray*)ary;
-- (IBAction)skipPage:(UIButton*)sender;
 
+- (void)loadSubview:(NSArray*)ary;
 
 @end
