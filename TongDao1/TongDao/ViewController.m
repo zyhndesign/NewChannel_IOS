@@ -101,7 +101,6 @@
 
 - (void)didReceiveMemoryWarning
 {
-    NSLog(@"didReceiveMemoryWarning");
     [super didReceiveMemoryWarning];
 }
 #pragma mark - scrollview delegate
@@ -198,7 +197,6 @@ static BOOL handleScrol;
 
 - (void)imageScaleShow:(NSString*)imageUrl
 {
-    NSLog(@"imageScaleShow");
     stopAllView.hidden = NO;
     otherContentV.hidden = NO;
     ImageShowView *imageShowView = [[ImageShowView alloc] initwithURL:imageUrl];

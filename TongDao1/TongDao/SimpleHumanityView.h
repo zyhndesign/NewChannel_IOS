@@ -17,6 +17,7 @@
     UILabel *midLineLb;
     UILabel *timeLb;
     TextLayoutView *detailTextV;
+    UIImageView *videoImageV;
     
     int Mode;
     NSDictionary *_infoDict;

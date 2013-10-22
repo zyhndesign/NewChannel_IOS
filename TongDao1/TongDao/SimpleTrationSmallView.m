@@ -50,6 +50,11 @@
     titleLb.font = [UIFont systemFontOfSize:17];
     [self addSubview:titleLb];
     
+    videoImageV = [[UIImageView alloc] initWithFrame:CGRectMake(proImageV.frame.size.width - 40, 0, 40, 35)];
+    [proImageV addSubview:videoImageV];
+    if ([[_infoDict objectForKey:@"hasVideo"] isEqualToString:@"true"])
+        [videoImageV setImage:[UIImage imageNamed:@"video.png"]];
+    
     
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];

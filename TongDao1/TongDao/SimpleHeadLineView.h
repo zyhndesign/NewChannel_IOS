@@ -18,6 +18,8 @@
     UILabel *timeLb;
     UILabel *yearLb;
     NSDictionary *_infoDict;
+    UIImageView *videoImageV;
+    
 }
 - (id)initWithInfoDict:(NSDictionary*)infoDict;
 @end

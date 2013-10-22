@@ -33,7 +33,6 @@
 #define PageSize 4
 - (void)didReceiveMemoryWarning
 {
-    NSLog(@"didReceiveMemoryWarning");
     if (AllScrollView.contentOffset.y >= 90 + 668*4 && AllScrollView.contentOffset.y < 90 + 668*6)
     {
         
@@ -59,6 +58,9 @@
 - (void)loadSubview:(NSArray*)ary
 {
     initAry = [[NSArray alloc] initWithArray:ary];
+    if (initAry.count == 0)
+        return;
+    
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
@@ -162,7 +164,6 @@
 #pragma mark - scrollview delegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    NSLog(@"scrollViewWillBeginDragging");
     int page = contentScrolV.contentOffset.x/1024;
     [self removeRemainMenuView:page];
     [self rebuildNewMenuView:page];
@@ -170,7 +171,6 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"endDecelering");
     NSInteger page = (scrollView.contentOffset.x+100)/1024;
     [self rebulidCurrentPage:[NSNumber numberWithInt:page+1]];
     [progressLb setFrame:CGRectMake(StartX + page*pageLenght, progressLb.frame.origin.y, progressLb.frame.size.width, progressLb.frame.size.height)];

@@ -66,7 +66,7 @@
     detailTextV.linesSpacing = 6;
     [whiteView addSubview:detailTextV];
     
-    /////defultbg-210.png
+    ////////defultbg-210.png
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 210, 210)];
     [whiteView addSubview:proImageV];
     
@@ -79,10 +79,11 @@
 //    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
 //    detailTextV.attributedText = atrriString;
     
-    ///////////
+    ////////
     UIImageView *redImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"time_bg.png"]];
     [redImageV setFrame:CGRectMake(0, 15, 90, 53)];
     [self addSubview:redImageV];
+    
     
     yearLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 29, 60, 22)];
     yearLb.textAlignment = NSTextAlignmentRight;
@@ -90,6 +91,12 @@
     yearLb.textColor = [UIColor whiteColor];
     yearLb.font = [UIFont systemFontOfSize:16];
     [self addSubview:yearLb];
+    
+    
+    videoImageV = [[UIImageView alloc] initWithFrame:CGRectMake(proImageV.frame.size.width - 40, 0, 40, 35)];
+    [proImageV addSubview:videoImageV];
+    if ([[_infoDict objectForKey:@"hasVideo"] isEqualToString:@"true"])
+        [videoImageV setImage:[UIImage imageNamed:@"video.png"]];
     
     NSString *timeStr = [_infoDict objectForKey:@"postDate"];
     if (timeStr.length >= 8)

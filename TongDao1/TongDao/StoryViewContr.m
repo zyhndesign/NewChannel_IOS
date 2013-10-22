@@ -36,7 +36,6 @@
 #define PageSize 5
 - (void)didReceiveMemoryWarning
 {
-    NSLog(@"didReceiveMemoryWarning");
     if (AllScrollView.contentOffset.y >= 90 + 668*6 && AllScrollView.contentOffset.y < 90 + 668*8)
     {
         
@@ -63,6 +62,8 @@
 - (void)loadSubview:(NSArray*)ary
 {
     initAry = [[NSArray alloc] initWithArray:ary];
+    if (initAry.count == 0)
+        return;
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;

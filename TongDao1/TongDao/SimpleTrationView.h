@@ -17,6 +17,8 @@
     UILabel *titleLb;
     UILabel *midLineLb;
     TextLayoutView *detailTextV;
+    UIImageView *videoImageV;
+    
     NSDictionary *_infoDict;
 }
 
