@@ -7,7 +7,8 @@
 //
 
 #import "MoviePlayViewContr.h"
-
+#import "AllVariable.h"
+#import "AudioPlayerViewCtr.h"
 
 @interface MoviePlayViewContr ()
 
@@ -26,6 +27,11 @@
 
 - (void)viewDidLoad
 {
+    isMusicPlay = playing;
+    if (isMusicPlay)
+    {
+        [AllAudioPlayViewCtr play:nil];
+    }
     [self moviePlay];
     
     activeView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -120,6 +126,10 @@
     if (isShow)
     {
         [self dismissViewControllerAnimated:YES completion:nil];
+        if (isMusicPlay)
+        {
+            [AllAudioPlayViewCtr play:nil];
+        }
     }
     else
     {
@@ -135,6 +145,10 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    if (isMusicPlay)
+    {
+        [AllAudioPlayViewCtr play:nil];
+    }
 }
 
 

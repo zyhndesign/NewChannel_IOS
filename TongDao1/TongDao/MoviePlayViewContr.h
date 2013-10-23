@@ -16,6 +16,7 @@
     MPMoviePlayerController *movie;
     BOOL isShow;
     
+    BOOL isMusicPlay;
     NSTimer *timerURL;
 }
 

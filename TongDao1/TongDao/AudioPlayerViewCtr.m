@@ -30,7 +30,6 @@
 
 - (void)viewDidLoad
 {
-    
     self.view.backgroundColor = [UIColor redColor];
     musicQueAry = [[NSMutableArray alloc] init];
     currentPosition = 0;
@@ -53,8 +52,7 @@
    // [self createStreamer:@"http://qybkapp.gaiay.net.cn//uploadfile//upload//10017c13f8355a86e-7f5e//voice//file//2013-07-01//58adcb0e-4b7f-40e3-b9f4-25f76999f901.mp3"];
     
 }
-
-static BOOL playing;
+ 
 - (IBAction)play:(UIButton *)sender
 {
     if (musicQueAry.count == 0)
@@ -168,6 +166,7 @@ static BOOL nextOpOver = YES;
 {
      nextOpOver = YES;
 }
+
 #pragma mark - streame
 // Creates or recreates the AudioStreamer object.
 - (void)createStreamer:(NSString*)audioUrlStr

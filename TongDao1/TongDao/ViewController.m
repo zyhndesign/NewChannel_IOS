@@ -82,6 +82,7 @@
     audioPlayViewCtr = [[AudioPlayerViewCtr alloc] init];
     [audioPlayViewCtr.view setFrame:CGRectMake(0, 0, audioPlayViewCtr.view.frame.size.width, audioPlayViewCtr.view.frame.size.height)];
     [musicView addSubview:audioPlayViewCtr.view];
+    AllAudioPlayViewCtr = audioPlayViewCtr;
     
     gifImageView = [[SCGIFImageView alloc] initWithGIFFile:[[NSBundle mainBundle] pathForResource:@"music_entrance" ofType:@"gif"]];
     [gifImageView setFrame:CGRectMake(0, 0, 50, 50)];

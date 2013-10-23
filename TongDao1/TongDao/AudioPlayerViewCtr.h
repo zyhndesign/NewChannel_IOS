@@ -37,5 +37,4 @@
 - (IBAction)play:(UIButton*)sender;
 - (IBAction)before:(UIButton*)sender;
 - (IBAction)next:(UIButton*)sender;
-
 @end
