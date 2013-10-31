@@ -58,9 +58,9 @@
     [self addSubview:timeLb];
     
     if (ios7)
-        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(20, 90, 188, 100)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(20, 90, 188, 80)];
     else
-        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(20, 90, 188, 100)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(20, 90, 188, 80)];
 
     detailTextV.font = [UIFont systemFontOfSize:14];
     detailTextV.textColor = [UIColor blackColor];

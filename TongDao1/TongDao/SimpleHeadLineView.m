@@ -54,7 +54,7 @@
     [whiteView addSubview:titleLb];
    
     if (ios7)
-        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(15, 285, 210, 95)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(15, 285, 210, 76)];
     else
         detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(15, 285, 210, 95)];
     
@@ -70,28 +70,24 @@
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 210, 210)];
     [whiteView addSubview:proImageV];
     
-//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-//    paragraphStyle.lineSpacing = 6.0f;
-//    paragraphStyle.firstLineHeadIndent = 0.0f;
-//    NSString *string = [_infoDict objectForKey:@"description"];
-//    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
-//    
-//    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
-//    detailTextV.attributedText = atrriString;
-    
     ////////
     UIImageView *redImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"time_bg.png"]];
     [redImageV setFrame:CGRectMake(0, 15, 90, 53)];
     [self addSubview:redImageV];
     
+    timeLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 18, 60, 22)];
+    timeLb.textAlignment = NSTextAlignmentRight;
+    timeLb.backgroundColor = [UIColor clearColor];
+    timeLb.textColor = [UIColor whiteColor];
+    timeLb.font = [UIFont systemFontOfSize:16];
+    [self addSubview:timeLb];
     
-    yearLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 29, 60, 22)];
+    yearLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 35, 60, 22)];
     yearLb.textAlignment = NSTextAlignmentRight;
     yearLb.backgroundColor = [UIColor clearColor];
     yearLb.textColor = [UIColor whiteColor];
     yearLb.font = [UIFont systemFontOfSize:16];
     [self addSubview:yearLb];
-    
     
     videoImageV = [[UIImageView alloc] initWithFrame:CGRectMake(proImageV.frame.size.width - 40, 0, 40, 35)];
     [proImageV addSubview:videoImageV];

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LoadMusicQue.h"
 @class AudioStreamer;
+
 @interface AudioPlayerViewCtr : UIViewController<NetworkDelegate>
 {
     NSString *CurrentUrlStr;
@@ -32,7 +33,6 @@
     IBOutlet UIView *stopAllView;
     
 }
-
 
 - (IBAction)play:(UIButton*)sender;
 - (IBAction)before:(UIButton*)sender;

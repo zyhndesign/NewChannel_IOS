@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad
 {
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = RedColor;
     musicQueAry = [[NSMutableArray alloc] init];
     currentPosition = 0;
     
@@ -92,7 +92,6 @@
 static BOOL presOpOver = YES;
 - (IBAction)before:(UIButton*)sender
 {
-    
     if (!presOpOver)
         return;
     if (musicQueAry.count == 0)
@@ -171,8 +170,10 @@ static BOOL nextOpOver = YES;
 // Creates or recreates the AudioStreamer object.
 - (void)createStreamer:(NSString*)audioUrlStr
 {
-//	if (streamer)
-//		return;
+	if (!streamer)
+    {
+        streamer = [[AudioStreamer alloc] init];
+    }
 	[self destroyStreamer];
     audioUrlStr = [audioUrlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSString *escapedValue =
@@ -185,8 +186,8 @@ static BOOL nextOpOver = YES;
      autorelease];
     
 	NSURL *url = [NSURL URLWithString:escapedValue];
-	streamer = [[AudioStreamer alloc] initWithURL:url];
-    
+	
+    [streamer reloadURL:url];
 	[self createTimers:YES];
     
 #ifdef SHOUTCAST_METADATA
@@ -200,9 +201,9 @@ static BOOL nextOpOver = YES;
 	if (streamer)
 	{
 		[self createTimers:NO];
-		[streamer stop];
-		[streamer release];
-		streamer = nil;
+//		[streamer stop];
+//		[streamer release];
+//		streamer = nil;
 	}
 }
 
@@ -271,7 +272,6 @@ static BOOL nextOpOver = YES;
 	}
 	else if ([streamer isPlaying])
 	{
-        playing = YES;
         playMusicImageV.hidden = YES;
         [gifImageView startAnimating];
         [activeView stopAnimating];
@@ -281,7 +281,6 @@ static BOOL nextOpOver = YES;
         [gifImageView stopAnimating];
         [activeView stopAnimating];
         playMusicImageV.hidden = NO;
-        playing = NO;
 	}
 	else if ([streamer isIdle])
 	{
