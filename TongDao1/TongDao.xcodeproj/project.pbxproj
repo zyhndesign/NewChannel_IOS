@@ -59,6 +59,7 @@
 		D343238417E5B0B100F6B5E5 /* StoryViewContr.xib in Resources */ = {isa = PBXBuildFile; fileRef = D343238217E5B0B100F6B5E5 /* StoryViewContr.xib */; };
 		D343238817E5B0E000F6B5E5 /* CommunityViewContr.m in Sources */ = {isa = PBXBuildFile; fileRef = D343238617E5B0E000F6B5E5 /* CommunityViewContr.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D343238917E5B0E000F6B5E5 /* CommunityViewContr.xib in Resources */ = {isa = PBXBuildFile; fileRef = D343238717E5B0E000F6B5E5 /* CommunityViewContr.xib */; };
+		D364C3FA1823477400B0AF78 /* GetVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D364C3F91823477400B0AF78 /* GetVersion.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D38A15D11807CCEA00AEDF98 /* QueueProHanle.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A15CC1807CCEA00AEDF98 /* QueueProHanle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D38A15D31807CCEA00AEDF98 /* QueueZipHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A15D01807CCEA00AEDF98 /* QueueZipHandle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D38A15E81807E82500AEDF98 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A15E71807E82500AEDF98 /* Default-Landscape~ipad.png */; };
@@ -285,6 +286,8 @@
 		D343238517E5B0E000F6B5E5 /* CommunityViewContr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewContr.h; sourceTree = "<group>"; };
 		D343238617E5B0E000F6B5E5 /* CommunityViewContr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewContr.m; sourceTree = "<group>"; };
 		D343238717E5B0E000F6B5E5 /* CommunityViewContr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityViewContr.xib; sourceTree = "<group>"; };
+		D364C3F81823477400B0AF78 /* GetVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetVersion.h; sourceTree = "<group>"; };
+		D364C3F91823477400B0AF78 /* GetVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetVersion.m; sourceTree = "<group>"; };
 		D38A15CB1807CCEA00AEDF98 /* QueueProHanle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueProHanle.h; sourceTree = "<group>"; };
 		D38A15CC1807CCEA00AEDF98 /* QueueProHanle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueProHanle.m; sourceTree = "<group>"; };
 		D38A15CF1807CCEA00AEDF98 /* QueueZipHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueZipHandle.h; sourceTree = "<group>"; };
@@ -594,6 +597,8 @@
 		D30882A717E548BA00F24817 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				D364C3F81823477400B0AF78 /* GetVersion.h */,
+				D364C3F91823477400B0AF78 /* GetVersion.m */,
 				D343235C17E5939500F6B5E5 /* NetworkDelegate.h */,
 				D32CBF9617E92FFE0004EFB2 /* LoadMusicQue.h */,
 				D32CBF9717E92FFE0004EFB2 /* LoadMusicQue.m */,
@@ -1178,6 +1183,7 @@
 				D3057EB717E8323000505C69 /* ActiveView.m in Sources */,
 				D3E7B04117F469DA00A1123E /* SimpleHumanityView.m in Sources */,
 				D306088317E888BF00CE728E /* AudioPlayerViewCtr.m in Sources */,
+				D364C3FA1823477400B0AF78 /* GetVersion.m in Sources */,
 				D32CBF9817E92FFE0004EFB2 /* LoadMusicQue.m in Sources */,
 				D3E7B03B17F45BD100A1123E /* SimpleHeadLineView.m in Sources */,
 				D32CBF9B17E9372F0004EFB2 /* UIDevice+Hardware.m in Sources */,
