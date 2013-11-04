@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad
 {
+    [self goolTrack];
+    
     [super viewDidLoad];
     [activeView startAnimating];
     AllScrollView = _scrollView;
@@ -40,6 +42,23 @@
     
     [self performSelector:@selector(MainViewLayerOut) withObject:nil afterDelay:0.3];
     
+}
+
+static NSString *const kTrackingId = @"UA-44083057-4";
+- (void)goolTrack
+{
+    ///// googl track
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker.
+    [[GAI sharedInstance] trackerWithName:@"通道"
+                               trackingId:kTrackingId];
 }
 
 #define PageSize 668

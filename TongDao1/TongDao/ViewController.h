@@ -16,7 +16,10 @@
 #import "AudioPlayerViewCtr.h"
 #import "VersionViewContr.h"
 
-@interface ViewController : UIViewController<NetworkDelegate, UIScrollViewDelegate>
+#import "GAITrackedViewController.h"
+#import "GAI.h"
+
+@interface ViewController : GAITrackedViewController<NetworkDelegate, UIScrollViewDelegate>
 {
     IBOutlet UIScrollView *_scrollView;
     HomePageViewContr *homePageViewCtr;
