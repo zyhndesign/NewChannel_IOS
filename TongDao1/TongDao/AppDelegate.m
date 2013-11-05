@@ -16,8 +16,10 @@
 #import "GAI.h"
 
 //UA-44083057-4
+static NSString *const kTrackingId = @"UA-44083057-4";
 
 @implementation AppDelegate
+@synthesize tracker = tracker_;
 
 - (void)dealloc
 {
@@ -28,6 +30,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [GAI sharedInstance].debug = YES;
+    [GAI sharedInstance].dispatchInterval = 120;
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:kTrackingId];
+    
     if (ios7)
     {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

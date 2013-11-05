@@ -182,7 +182,8 @@
 		D393AF9C1822585400CA091A /* project_logo_V@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D393AF251822585400CA091A /* project_logo_V@2x.png */; };
 		D393AF9D1822585400CA091A /* section_title_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D393AF261822585400CA091A /* section_title_background@2x.png */; };
 		D393AF9E1822585400CA091A /* video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D393AF271822585400CA091A /* video@2x.png */; };
-		D3D779A01827A503001E2ACF /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D7799F1827A503001E2ACF /* libGoogleAnalytics_debug.a */; };
+		D3BE0E201828F58E005AE010 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BE0E1E1828F58E005AE010 /* libGoogleAnalytics.a */; };
+		D3BE0E211828F58E005AE010 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BE0E1F1828F58E005AE010 /* libGoogleAnalytics_debug.a */; };
 		D3D779AB1827A633001E2ACF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D779AA1827A632001E2ACF /* SystemConfiguration.framework */; };
 		D3E7B03B17F45BD100A1123E /* SimpleHeadLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E7B03A17F45BD100A1123E /* SimpleHeadLineView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3E7B03E17F4658E00A1123E /* SimpleLandscView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E7B03D17F4658E00A1123E /* SimpleLandscView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -414,13 +415,13 @@
 		D393AF251822585400CA091A /* project_logo_V@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "project_logo_V@2x.png"; sourceTree = "<group>"; };
 		D393AF261822585400CA091A /* section_title_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "section_title_background@2x.png"; sourceTree = "<group>"; };
 		D393AF271822585400CA091A /* video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video@2x.png"; sourceTree = "<group>"; };
-		D3D779991827A503001E2ACF /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		D3D7799A1827A503001E2ACF /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		D3D7799B1827A503001E2ACF /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		D3D7799C1827A503001E2ACF /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		D3D7799D1827A503001E2ACF /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		D3D7799E1827A503001E2ACF /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		D3D7799F1827A503001E2ACF /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		D3BE0E191828F58E005AE010 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		D3BE0E1A1828F58E005AE010 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		D3BE0E1B1828F58E005AE010 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		D3BE0E1C1828F58E005AE010 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		D3BE0E1D1828F58E005AE010 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		D3BE0E1E1828F58E005AE010 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		D3BE0E1F1828F58E005AE010 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		D3D779AA1827A632001E2ACF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D3E7B03917F45BD100A1123E /* SimpleHeadLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleHeadLineView.h; sourceTree = "<group>"; };
 		D3E7B03A17F45BD100A1123E /* SimpleHeadLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleHeadLineView.m; sourceTree = "<group>"; };
@@ -465,10 +466,11 @@
 				D3057E9F17E7ED5F00505C69 /* MediaPlayer.framework in Frameworks */,
 				D343236B17E5A26100F6B5E5 /* libsqlite3.0.dylib in Frameworks */,
 				D56B788517E55F37005DA29F /* libz.dylib in Frameworks */,
-				D3D779A01827A503001E2ACF /* libGoogleAnalytics_debug.a in Frameworks */,
 				D56B788317E55EC7005DA29F /* CoreData.framework in Frameworks */,
 				D56B786417E55C9C005DA29F /* QuartzCore.framework in Frameworks */,
 				D308825A17E5467B00F24817 /* UIKit.framework in Frameworks */,
+				D3BE0E201828F58E005AE010 /* libGoogleAnalytics.a in Frameworks */,
+				D3BE0E211828F58E005AE010 /* libGoogleAnalytics_debug.a in Frameworks */,
 				D308825C17E5467B00F24817 /* Foundation.framework in Frameworks */,
 				D308825E17E5467B00F24817 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -560,7 +562,7 @@
 		D308827D17E5483700F24817 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				D3D779981827A503001E2ACF /* LibraryAnaly */,
+				D3BE0E181828F58E005AE010 /* Library */,
 				D30882A717E548BA00F24817 /* Net */,
 				D38A15CA1807CCC700AEDF98 /* DataBase */,
 				D308829417E5488B00F24817 /* Json */,
@@ -949,18 +951,18 @@
 			path = VersionImage;
 			sourceTree = "<group>";
 		};
-		D3D779981827A503001E2ACF /* LibraryAnaly */ = {
+		D3BE0E181828F58E005AE010 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				D3D779991827A503001E2ACF /* GAI.h */,
-				D3D7799A1827A503001E2ACF /* GAIDictionaryBuilder.h */,
-				D3D7799B1827A503001E2ACF /* GAIFields.h */,
-				D3D7799C1827A503001E2ACF /* GAILogger.h */,
-				D3D7799D1827A503001E2ACF /* GAITrackedViewController.h */,
-				D3D7799E1827A503001E2ACF /* GAITracker.h */,
-				D3D7799F1827A503001E2ACF /* libGoogleAnalytics_debug.a */,
+				D3BE0E191828F58E005AE010 /* GAI.h */,
+				D3BE0E1A1828F58E005AE010 /* GAITrackedViewController.h */,
+				D3BE0E1B1828F58E005AE010 /* GAITracker.h */,
+				D3BE0E1C1828F58E005AE010 /* GAITransaction.h */,
+				D3BE0E1D1828F58E005AE010 /* GAITransactionItem.h */,
+				D3BE0E1E1828F58E005AE010 /* libGoogleAnalytics.a */,
+				D3BE0E1F1828F58E005AE010 /* libGoogleAnalytics_debug.a */,
 			);
-			path = LibraryAnaly;
+			path = Library;
 			sourceTree = "<group>";
 		};
 		D56B786517E55E69005DA29F /* minizip */ = {
@@ -1317,6 +1319,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/sunyong/Desktop/company/中意/NewChannel_IOS/TongDao1/TongDao/LibraryAnaly",
+					"/Users/sunyong/Desktop/company/中意/NewChannel_IOS/TongDao1/TongDao/Library",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
@@ -1337,6 +1340,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/sunyong/Desktop/company/中意/NewChannel_IOS/TongDao1/TongDao/LibraryAnaly",
+					"/Users/sunyong/Desktop/company/中意/NewChannel_IOS/TongDao1/TongDao/Library",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
