@@ -101,7 +101,7 @@
             }
             else
             {
-                NSLog(@"解压成功");
+               // NSLog(@"解压成功");
                 isResult = YES;
             }
             [zip UnzipCloseFile];
@@ -117,7 +117,7 @@
     }
     else
     {
-        NSLog(@"md5Error");
+       // NSLog(@"md5Error");
         [fileManager removeItemAtPath:filePath error:nil];
     }
     [QueueZipHandle taskFinish];

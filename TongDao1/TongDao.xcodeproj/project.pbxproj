@@ -1009,6 +1009,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = sunyong;
+				TargetAttributes = {
+					D308825517E5467B00F24817 = {
+						DevelopmentTeam = FNB4FR5EG6;
+					};
+				};
 			};
 			buildConfigurationList = D308825117E5467B00F24817 /* Build configuration list for PBXProject "TongDao" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1256,8 +1261,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1272,8 +1277,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				PROVISIONING_PROFILE = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1290,8 +1295,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1299,8 +1304,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				PROVISIONING_PROFILE = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1310,8 +1315,8 @@
 		D308827A17E5467B00F24817 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/TongDao-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/TongDao-Info.plist";
@@ -1322,8 +1327,8 @@
 					"/Users/sunyong/Desktop/company/中意/NewChannel_IOS/TongDao1/TongDao/Library",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				PROVISIONING_PROFILE = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1331,8 +1336,8 @@
 		D308827B17E5467B00F24817 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/TongDao-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/TongDao-Info.plist";
@@ -1343,8 +1348,8 @@
 					"/Users/sunyong/Desktop/company/中意/NewChannel_IOS/TongDao1/TongDao/Library",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				PROVISIONING_PROFILE = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
