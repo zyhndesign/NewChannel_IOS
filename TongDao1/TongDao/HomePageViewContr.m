@@ -8,7 +8,6 @@
 
 #import "HomePageViewContr.h"
 #import "SimpleHeadLineView.h"
-#import "HeadProImageNet.h"
 #import "ContentView.h"
 #import "ViewController.h"
 #import "AllVariable.h"
@@ -81,15 +80,16 @@
     }
     else
     {
-        NSString *pathProFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)  lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@", [infoDict objectForKey:@"id"], backGround]];
-        if([[NSFileManager defaultManager] fileExistsAtPath:pathProFile])
-        {
-            [mainImageV setImage:[UIImage imageWithContentsOfFile:pathProFile]];
-        }
-        else
-        {
-            
-        }
+        [mainImageV setImage:[UIImage imageNamed:@"bg0.png"]];
+//        NSString *pathProFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)  lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@", [infoDict objectForKey:@"id"], backGround]];
+//        if([[NSFileManager defaultManager] fileExistsAtPath:pathProFile])
+//        {
+//            [mainImageV setImage:[UIImage imageWithContentsOfFile:pathProFile]];
+//        }
+//        else
+//        {
+//            
+//        }
     }
     
     //// 后三个
@@ -119,17 +119,5 @@
         [RootViewContr presentViewContr:[initAry objectAtIndex:0]];
     }
 }
-
-#pragma mark - net delegate
-- (void)didReciveImage:(UIImage *)backImage
-{
-    [mainImageV setImage:backImage];
-}
-
-- (void)didReceiveErrorCode:(NSError *)ErrorDict
-{
-    
-}
-
 
 @end

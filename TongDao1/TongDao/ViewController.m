@@ -15,6 +15,7 @@
 #import "AllVariable.h"
 #import "SCGIFImageView.h"
 #import "ContentView.h"
+#import "googleAnalytics/GAIDictionaryBuilder.h"
 
 @interface ViewController ()
 
@@ -26,7 +27,13 @@
 
 - (void)viewDidLoad
 {
-    self.trackedViewName = @"root";
+    self.screenName = @"社区界面";
+    
+    [[GAI sharedInstance].defaultTracker set:self.screenName
+                                       value:@"Main Screen"];
+    
+    // Send the screen view.
+    [[GAI sharedInstance].defaultTracker send:[[GAIDictionaryBuilder createAppView] build]];
     
     [super viewDidLoad];
     
@@ -50,7 +57,7 @@
 - (void)MainViewLayerOut
 {
     [_scrollView setContentSize:CGSizeMake(1024, PageSize*11)];
-  //  _scrollView.pagingEnabled = YES;
+    //  _scrollView.pagingEnabled = YES;
     homePageViewCtr  = [[HomePageViewContr alloc] init];
     [homePageViewCtr.view setFrame:CGRectMake(0, 0, homePageViewCtr.view.frame.size.width, homePageViewCtr.view.frame.size.height)];
     
@@ -184,7 +191,7 @@ static BOOL handleScrol;
                              [musicView setCenter:CGPointMake(1024 + 512, musicView.center.y)];
                          }
                          completion:^(BOOL finish){
-        }];
+                         }];
     }
     else
     {
