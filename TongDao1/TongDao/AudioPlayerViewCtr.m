@@ -357,9 +357,10 @@ static BOOL nextOpOver = YES;
 
 - (void)didReceiveErrorCode:(NSError *)ErrorDict
 {
+    NSLog(@"%@", ErrorDict);
     stopAllView.hidden = YES;
     [activeView stopAnimating];
-    if ([ErrorDict code] == -1009)
+    if ([ErrorDict code] == -1009 || [ErrorDict code] == -1001)
     {
         UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络数据连接失败，请检查网络设置。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alerView show];

@@ -25,6 +25,7 @@
 
 - (void)loadImageFromUrl
 {
+    imageUrl = [imageUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:120.0f];
     [request setHTTPMethod:@"GET"];
     [request setHTTPBody:nil];

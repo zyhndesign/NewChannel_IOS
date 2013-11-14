@@ -63,8 +63,6 @@
     
     NSString *backGround = [infoDict objectForKey:@"background"];
     NSArray *tempAry = [backGround componentsSeparatedByString:@"."];
-    if (tempAry.count < 2)
-        return;
     if ([[tempAry lastObject] isEqualToString:@"mp4"])
     {
         NSString *pathProFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)  lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@", [infoDict objectForKey:@"id"], backGround]];
