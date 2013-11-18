@@ -17,6 +17,8 @@
 		D306087C17E8879700CE728E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306087B17E8879700CE728E /* AVFoundation.framework */; };
 		D306088317E888BF00CE728E /* AudioPlayerViewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = D306088117E888BF00CE728E /* AudioPlayerViewCtr.m */; };
 		D306088417E888BF00CE728E /* AudioPlayerViewCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = D306088217E888BF00CE728E /* AudioPlayerViewCtr.xib */; };
+		D3065EEB183A29BA003A6FB1 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = D3065EEA183A29BA003A6FB1 /* icon_72.png */; };
+		D3065EED183A29CC003A6FB1 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = D3065EEC183A29CC003A6FB1 /* icon_144.png */; };
 		D308825A17E5467B00F24817 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D308825917E5467B00F24817 /* UIKit.framework */; };
 		D308825C17E5467B00F24817 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D308825B17E5467B00F24817 /* Foundation.framework */; };
 		D308825E17E5467B00F24817 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D308825D17E5467B00F24817 /* CoreGraphics.framework */; };
@@ -225,6 +227,8 @@
 		D306088017E888BF00CE728E /* AudioPlayerViewCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerViewCtr.h; sourceTree = "<group>"; };
 		D306088117E888BF00CE728E /* AudioPlayerViewCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerViewCtr.m; sourceTree = "<group>"; };
 		D306088217E888BF00CE728E /* AudioPlayerViewCtr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPlayerViewCtr.xib; sourceTree = "<group>"; };
+		D3065EEA183A29BA003A6FB1 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
+		D3065EEC183A29CC003A6FB1 /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
 		D308825617E5467B00F24817 /* TongDao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TongDao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D308825917E5467B00F24817 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D308825B17E5467B00F24817 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -497,11 +501,10 @@
 			isa = PBXGroup;
 			children = (
 				D38A15E71807E82500AEDF98 /* Default-Landscape~ipad.png */,
-				D32CBF9F17E938290004EFB2 /* CFNetwork.framework */,
-				D32CBF9217E92F270004EFB2 /* AudioToolbox.framework */,
-				D306087B17E8879700CE728E /* AVFoundation.framework */,
 				D3323D6517F8306F007EE0F6 /* icon_newchannel_144(1).png */,
 				D3323D6617F8306F007EE0F6 /* icon_newchannel_72(1).png */,
+				D3065EEA183A29BA003A6FB1 /* icon_72.png */,
+				D3065EEC183A29CC003A6FB1 /* icon_144.png */,
 				D3DF2A7B183101AE004B1C8F /* icon29.png */,
 				D3DF2A7C183101AE004B1C8F /* icon40.png */,
 				D3DF2A7D183101AE004B1C8F /* icon50.png */,
@@ -510,7 +513,6 @@
 				D3DF2A80183101AE004B1C8F /* icon80.png */,
 				D3DF2A81183101AE004B1C8F /* icon100.png */,
 				D3DF2A82183101AE004B1C8F /* icon152.png */,
-				D3057E9E17E7ED5F00505C69 /* MediaPlayer.framework */,
 				D343236A17E5A26100F6B5E5 /* libsqlite3.0.dylib */,
 				D56B788417E55F37005DA29F /* libz.dylib */,
 				D56B788217E55EC7005DA29F /* CoreData.framework */,
@@ -532,6 +534,10 @@
 		D308825817E5467B00F24817 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3057E9E17E7ED5F00505C69 /* MediaPlayer.framework */,
+				D32CBF9F17E938290004EFB2 /* CFNetwork.framework */,
+				D32CBF9217E92F270004EFB2 /* AudioToolbox.framework */,
+				D306087B17E8879700CE728E /* AVFoundation.framework */,
 				D3D779AA1827A632001E2ACF /* SystemConfiguration.framework */,
 				D302EDDC18068513004589D3 /* CoreText.framework */,
 				D308825917E5467B00F24817 /* UIKit.framework */,
@@ -1093,6 +1099,7 @@
 				D393AF741822585400CA091A /* bg3@2x.png in Resources */,
 				D343237F17E5B08F00F6B5E5 /* HumanityViewContr.xib in Resources */,
 				D393AF281822585400CA091A /* btn_arrow_left.png in Resources */,
+				D3065EED183A29CC003A6FB1 /* icon_144.png in Resources */,
 				D343238417E5B0B100F6B5E5 /* StoryViewContr.xib in Resources */,
 				D393AF4D1822585400CA091A /* music_btn_previous_normal.png in Resources */,
 				D393AF771822585400CA091A /* defultbg-200@2x.png in Resources */,
@@ -1186,6 +1193,7 @@
 				D393AF701822585400CA091A /* 404-1@2x.png in Resources */,
 				D393AF681822585400CA091A /* btn_arrow_left@2x.png in Resources */,
 				D393AF391822585400CA091A /* defultbg-238.png in Resources */,
+				D3065EEB183A29BA003A6FB1 /* icon_72.png in Resources */,
 				D393AF8D1822585400CA091A /* music_btn_previous_pressed@2x.png in Resources */,
 				D393AF2D1822585400CA091A /* btn_back_pressed.png in Resources */,
 				D393AF381822585400CA091A /* defultbg-210.png in Resources */,
@@ -1291,8 +1299,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ling Li (4366PRAT2A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ling Li (4366PRAT2A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1307,8 +1315,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "247639BA-BB77-4922-9C84-A7794D7863FF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "247639BA-BB77-4922-9C84-A7794D7863FF";
+				PROVISIONING_PROFILE = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1325,8 +1333,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ling Li (4366PRAT2A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ling Li (4366PRAT2A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1334,8 +1342,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "247639BA-BB77-4922-9C84-A7794D7863FF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "247639BA-BB77-4922-9C84-A7794D7863FF";
+				PROVISIONING_PROFILE = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1345,8 +1353,8 @@
 		D308827A17E5467B00F24817 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ling Li (4366PRAT2A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ling Li (4366PRAT2A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/TongDao-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/TongDao-Info.plist";
@@ -1358,8 +1366,8 @@
 					"/Users/sunyong/Desktop/company/中意/NewChannel_IOS/TongDao1/TongDao/googleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "247639BA-BB77-4922-9C84-A7794D7863FF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "247639BA-BB77-4922-9C84-A7794D7863FF";
+				PROVISIONING_PROFILE = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1367,8 +1375,8 @@
 		D308827B17E5467B00F24817 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ling Li (4366PRAT2A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ling Li (4366PRAT2A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/TongDao-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/TongDao-Info.plist";
@@ -1380,8 +1388,8 @@
 					"/Users/sunyong/Desktop/company/中意/NewChannel_IOS/TongDao1/TongDao/googleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "247639BA-BB77-4922-9C84-A7794D7863FF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "247639BA-BB77-4922-9C84-A7794D7863FF";
+				PROVISIONING_PROFILE = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "06B34DFE-706D-4831-87D1-F3667CFCC2D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
