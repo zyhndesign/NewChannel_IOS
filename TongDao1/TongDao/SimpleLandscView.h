@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
+@class ProImageLoadNet;
+
 @interface SimpleLandscView : UIView<NetworkDelegate>
 {
     UIImageView *proImageV;
@@ -17,5 +19,7 @@
     NSDictionary *_infoDict;
 }
 
+@property(nonatomic, strong)ProImageLoadNet *proImageLoadNet;
 - (id)initWithInfoDict:(NSDictionary*)infoDict;
+
 @end

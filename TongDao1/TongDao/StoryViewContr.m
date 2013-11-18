@@ -11,6 +11,7 @@
 #import "SimpleTrationSmallView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AllVariable.h"
+#import "ProImageLoadNet.h"
 
 
 
@@ -197,6 +198,8 @@
     {
         if (view.tag < (midPage - 2)*PageSize || view.tag > (midPage + 3)*PageSize)
         {
+            SimpleTrationSmallView *tempV = (SimpleTrationSmallView*)view;
+            tempV.proImageLoadNet.delegate = nil;
             [view removeFromSuperview];
         }
     }

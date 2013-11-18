@@ -357,7 +357,6 @@ static BOOL nextOpOver = YES;
 
 - (void)didReceiveErrorCode:(NSError *)ErrorDict
 {
-    NSLog(@"%@", ErrorDict);
     stopAllView.hidden = YES;
     [activeView stopAnimating];
     if ([ErrorDict code] == -1009 || [ErrorDict code] == -1001)

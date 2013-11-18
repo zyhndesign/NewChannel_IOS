@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
 #import "TextLayoutView.h"
+@class ProImageLoadNet;
 
 @interface SimpleTrationView : UIView<NetworkDelegate>
 {
@@ -22,5 +23,6 @@
     NSDictionary *_infoDict;
 }
 
+@property(nonatomic, strong)ProImageLoadNet *proImageLoadNet;
 - (id)initWithInfoDict:(NSDictionary*)infoDict;
 @end

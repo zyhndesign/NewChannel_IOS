@@ -13,6 +13,7 @@
 #import "ViewController.h"
 
 @implementation SimpleHumanityView
+@synthesize proImageLoadNet;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -114,7 +115,7 @@
     else
     {
         [proImageV setImage:[UIImage imageNamed:@"defultbg-180.png"]];
-        ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
+        proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = imageURL;
         [QueueProHanle addTarget:proImageLoadNet];
@@ -141,6 +142,7 @@
     [timeLb      removeFromSuperview];
     [midLineLb   removeFromSuperview];
     [detailTextV removeFromSuperview];
+    proImageLoadNet = nil;
     proImageV   = nil;
     titleLb     = nil;
     midLineLb   = nil;

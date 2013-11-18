@@ -11,7 +11,7 @@
 #import "ViewController.h"
 #import "LocalSQL.h"
 #import "AllVariable.h"
-
+#import <sys/xattr.h>
 static NSString *const kTrackingId = @"UA-44083057-4";
 
 @implementation AppDelegate
@@ -37,6 +37,8 @@ static NSString *const kTrackingId = @"UA-44083057-4";
     }
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSURL *pathURL = [NSURL fileURLWithPath:path];
+    [self addSkipBackupAttributeToItemAtURL:pathURL];
     NSString *docProImagePath = [path stringByAppendingPathComponent:@"ProImage"];
     BOOL doct = YES;
     if (![[NSFileManager defaultManager] fileExistsAtPath:docProImagePath isDirectory:&doct])
@@ -90,6 +92,15 @@ static NSString *const kTrackingId = @"UA-44083057-4";
     }
 }
 
+- (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL*)URL
+{
+    const char* filePath = [[URL path] fileSystemRepresentation];
+    const char* attrName = "com.apple.MobileBackup";
+    u_int8_t attrValue = 1;
+    
+    int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
+    return result == 0;
+}
 
 - (void)didReceiveErrorCode:(NSError*)Error
 {
@@ -118,6 +129,7 @@ static NSString *const kTrackingId = @"UA-44083057-4";
         }
     }
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application

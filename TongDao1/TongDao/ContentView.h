@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
 #import "LoadZipFileNet.h"
-#import "ActiveView.h"
 
 @interface ContentView : UIView<UIWebViewDelegate, NSXMLParserDelegate, NetworkDelegate>
 {
-    ActiveView *activeView;
-    
     UIWebView *_webView;
     UILabel *bgLabel;
     
@@ -26,6 +23,10 @@
     BOOL StartValue;
     LoadZipFileNet *loadZipNet;
 }
+@property(nonatomic, strong)UIProgressView *progressV;
+@property(nonatomic, strong)UILabel *proValueLb;
+@property(nonatomic, strong)UILabel *proMarkLb;
+
 - (id)initWithInfoDict:(NSDictionary*)infoDict;
 - (void)back:(UIButton*)sender;
 

@@ -9,6 +9,7 @@
 #import "LandscapeViewContr.h"
 #import "SimpleLandscView.h"
 #import "AllVariable.h"
+#import "ProImageLoadNet.h"
 
 @interface LandscapeViewContr ()
 
@@ -139,6 +140,8 @@
     {
         if (view.tag < (midPage - 2)*PageSize || view.tag > (midPage + 3)*PageSize)
         {
+            SimpleLandscView *tempV = (SimpleLandscView*)view;
+            tempV.proImageLoadNet.delegate = nil;
             [view removeFromSuperview];
         }
     }

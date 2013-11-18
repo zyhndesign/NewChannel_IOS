@@ -13,6 +13,7 @@
 #import "ViewController.h"
 
 @implementation SimpleTrationView
+@synthesize proImageLoadNet;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -103,7 +104,7 @@
     else
     {
         [proImageV setImage:[UIImage imageNamed:@"defultbg-420.png"]];
-        ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
+        proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = imageURL;
         [QueueProHanle addTarget:proImageLoadNet];

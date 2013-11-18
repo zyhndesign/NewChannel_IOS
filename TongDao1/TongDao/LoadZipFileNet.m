@@ -10,6 +10,7 @@
 #import "MFSP_MD5.h"
 #import "ZipArchive.h"
 #import "AllVariable.h"
+#import "ContentView.h"
 
 @implementation LoadZipFileNet
 
@@ -17,6 +18,7 @@
 @synthesize md5Str;
 @synthesize urlStr;
 @synthesize zipStr;
+@synthesize zipSize;
 
 - (void)loadMenuFromUrl
 {
@@ -25,7 +27,7 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"GET"];
     
-    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connect)
     {
         backData = [[NSMutableData alloc] init];
@@ -36,12 +38,18 @@
     }
 }
 
+- (void)cancelLoad
+{
+    if (connect)
+        [connect cancel];
+}
+
 - (void)reloadUrlData
 {    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0f];
     [request setHTTPMethod:@"GET"];
     
-    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connect)
     {
         backData = [[NSMutableData alloc] init];
@@ -56,7 +64,7 @@
 {
     if (connectNum == 1)
     {
-        [QueueZipHandle taskFinish];
+        [QueueZipHandle taskFinish:self];
         if ([delegate respondsToSelector:@selector(didReceiveErrorCode:)])
             [delegate didReceiveErrorCode:error];
     }
@@ -72,6 +80,10 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [backData appendData:data];
+    ContentView *contentVC = (ContentView*)delegate;
+    contentVC.progressV.progress = [backData length]/zipSize;
+    int value = [backData length]/zipSize * 100;
+    contentVC.proValueLb.text = [NSString stringWithFormat:@"%2d", value];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -120,15 +132,17 @@
        // NSLog(@"md5Error");
         [fileManager removeItemAtPath:filePath error:nil];
     }
-    [QueueZipHandle taskFinish];
+    [QueueZipHandle taskFinish:self];
 }
 
 - (void)dealloc
 {
+    delegate = nil;
     backData = nil;
     urlStr = nil;
     md5Str = nil;
     zipStr = nil;
+    connect = nil;
 }
 
 @end

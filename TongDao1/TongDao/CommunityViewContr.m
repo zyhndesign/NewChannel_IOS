@@ -9,6 +9,7 @@
 #import "CommunityViewContr.h"
 #import "SimpleHumanityView.h"
 #import "AllVariable.h"
+#import "ProImageLoadNet.h"
 
 @interface CommunityViewContr ()
 
@@ -149,6 +150,8 @@
     {
         if ((view.tag > 0 && view.tag < (midPage - 2)*PageSize + 1) || view.tag > (midPage + 3)*PageSize + 1)
         {
+            SimpleHumanityView *tempV = (SimpleHumanityView*)view;
+            tempV.proImageLoadNet.delegate = nil;
             [view removeFromSuperview];
         }
     }

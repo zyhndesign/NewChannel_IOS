@@ -13,6 +13,7 @@
 #import "ViewController.h"
 
 @implementation SimpleLandscView
+@synthesize proImageLoadNet;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -86,7 +87,7 @@
     else
     {
         [proImageV setImage:[UIImage imageNamed:@"defultbg-238.png"]];
-        ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
+        proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = imageURL;
         [QueueProHanle addTarget:proImageLoadNet];
@@ -95,6 +96,7 @@
 
 - (void)dealloc
 {
+    proImageLoadNet = nil;
     [proImageV removeFromSuperview];
     proImageV = nil;
     [titleLb   removeFromSuperview];
