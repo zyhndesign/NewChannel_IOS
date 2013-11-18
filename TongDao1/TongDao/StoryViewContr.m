@@ -152,7 +152,10 @@
 {
     if (initAry.count < PageSize*3)  // 3页之内不做处理，只有内存警告是才删除多余的
         return;
-    for (int i = (currentPage-2)*PageSize; i < initAry.count && i < (currentPage+3)*PageSize; i++)
+    int startP = (currentPage-2)*PageSize;
+    if (startP < 0)
+        startP = 0;
+    for (int i = startP; i < initAry.count && i < (currentPage+3)*PageSize; i++)
     {
         if (i < 0)
             continue;
@@ -226,8 +229,22 @@
     [self rebuildNewMenuView:page];
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+    {
+        NSLog(@"-======%f", scrollView.contentOffset.x);
+        [self rebulidCurrentPage:(scrollView.contentOffset.x+100)/1024];
+    }
+    else
+    {
+        
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    NSLog(@"----%f", scrollView.contentOffset.x);
     [self rebulidCurrentPage:(scrollView.contentOffset.x+100)/1024];
 }
 

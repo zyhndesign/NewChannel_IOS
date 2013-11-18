@@ -283,9 +283,6 @@
 				}
 				
 			}
-		
-			
-			
 		}
 		zip_unzCloseCurrentFile( _unzFile );
 		ret = zip_unzGoToNextFile( _unzFile );

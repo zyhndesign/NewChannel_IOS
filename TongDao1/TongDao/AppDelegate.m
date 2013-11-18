@@ -37,8 +37,7 @@ static NSString *const kTrackingId = @"UA-44083057-4";
     }
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSURL *pathURL = [NSURL fileURLWithPath:path];
-    [self addSkipBackupAttributeToItemAtURL:pathURL];
+    [self addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:path]];
     NSString *docProImagePath = [path stringByAppendingPathComponent:@"ProImage"];
     BOOL doct = YES;
     if (![[NSFileManager defaultManager] fileExistsAtPath:docProImagePath isDirectory:&doct])

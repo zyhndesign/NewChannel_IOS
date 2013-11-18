@@ -126,7 +126,10 @@
     if (initAry.count < PageSize*3)
         return;
     int currentPage = [currentPageNum intValue];
-    for (int i = (currentPage-2)*PageSize; i < initAry.count && i < (currentPage+3)*PageSize; i++)
+    int startP = (currentPage-2)*PageSize;
+    if (startP < 0)
+        startP = 0;
+    for (int i = startP; i < initAry.count && i < (currentPage+3)*PageSize; i++)
     {
         if (i < 0)
             continue;
