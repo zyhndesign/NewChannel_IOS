@@ -73,12 +73,12 @@
         }
         else
         {
-            [mainImageV setImage:[UIImage imageNamed:@"bg0.png"]];
+           // [mainImageV setImage:[UIImage imageNamed:@"bg0.png"]];
         }
     }
     else
     {
-        [mainImageV setImage:[UIImage imageNamed:@"bg0.png"]];
+       // [mainImageV setImage:[UIImage imageNamed:@"bg0.png"]];
 //        NSString *pathProFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)  lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@", [infoDict objectForKey:@"id"], backGround]];
 //        if([[NSFileManager defaultManager] fileExistsAtPath:pathProFile])
 //        {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewContr">
@@ -25,7 +25,7 @@
                         <outlet property="delegate" destination="-1" id="29"/>
                     </connections>
                 </scrollView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg4.png" id="16">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg4.jpg" id="16">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="760"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -62,7 +62,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg4.png" width="1024" height="760"/>
+        <image name="bg4.jpg" width="1024" height="760"/>
         <image name="mask_community_1.png" width="1024" height="210"/>
         <image name="mask_community_2.png" width="1024" height="120"/>
         <image name="section_slogen_bg.png" width="395" height="60"/>
