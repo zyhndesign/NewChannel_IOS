@@ -70,6 +70,7 @@
         {
 //            movieBgPlayVC = [[MovieBgPlayViewCtr alloc] initwithURL:pathProFile];
 //            [movieView addSubview:movieBgPlayVC.view];
+        
         }
         else
         {
